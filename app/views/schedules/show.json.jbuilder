@@ -1,1 +1,1 @@
-json.extract! @schedule, :id, :gym_id, :mon_open, :mon_close, :tues_open, :tues_close, :wed_open, :wed_close, :thu_open, :thu_close, :fri_open, :fri_close, :sat_open, :sat_close, :sun_open, :sun_close, :created_at, :updated_at
+json.extract! @schedule, :id, :gym_id, :mon_open, :mon_close, :tue_open, :tue_close, :wed_open, :wed_close, :thu_open, :thu_close, :fri_open, :fri_close, :sat_open, :sat_close, :sun_open, :sun_close, :created_at, :updated_at

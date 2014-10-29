@@ -1,77 +1,129 @@
-<%= form_for(@schedule) do |f| %>
-  <% if @schedule.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@schedule.errors.count, "error") %> prohibited this schedule from being saved:</h2>
+<%= form_for @schedule, :html => { :class => "form-horizontal schedule" } do |f| %>
 
-      <ul>
-      <% @schedule.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+    <% if @schedule.errors.any? %>
+    <div id="error_expl" class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= pluralize(@schedule.errors.count, "error") %> prohibited this schedule from being saved:</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+        <% @schedule.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :gym_id %><br>
-    <%= f.number_field :gym_id %>
+  <div class="control-group">
+    <%= f.label :gym_id, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :gym_id, :class => 'form-control' %>
+    </div>
+    <%= error_span(@schedule[:gym_id]) %>
   </div>
-  <div class="field">
-    <%= f.label :mon_open %><br>
-    <%= f.text_field :mon_open %>
+  <div class="control-group">
+    <%= f.label :mon_open, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :mon_open, :class => 'form-control' %>
+    </div>
+    <%= error_span(@schedule[:mon_open]) %>
   </div>
-  <div class="field">
-    <%= f.label :mon_close %><br>
-    <%= f.text_field :mon_close %>
+  <div class="control-group">
+    <%= f.label :mon_close, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :mon_close, :class => 'form-control' %>
+    </div>
+    <%= error_span(@schedule[:mon_close]) %>
   </div>
-  <div class="field">
-    <%= f.label :tues_open %><br>
-    <%= f.text_field :tues_open %>
+  <div class="control-group">
+    <%= f.label :tue_open, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :tue_open, :class => 'form-control' %>
+    </div>
+    <%= error_span(@schedule[:tue_open]) %>
   </div>
-  <div class="field">
-    <%= f.label :tues_close %><br>
-    <%= f.text_field :tues_close %>
+  <div class="control-group">
+    <%= f.label :tue_close, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :tue_close, :class => 'form-control' %>
+    </div>
+    <%= error_span(@schedule[:tue_close]) %>
   </div>
-  <div class="field">
-    <%= f.label :wed_open %><br>
-    <%= f.text_field :wed_open %>
+  <div class="control-group">
+    <%= f.label :wed_open, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :wed_open, :class => 'form-control' %>
+    </div>
+    <%= error_span(@schedule[:wed_open]) %>
   </div>
-  <div class="field">
-    <%= f.label :wed_close %><br>
-    <%= f.text_field :wed_close %>
+  <div class="control-group">
+    <%= f.label :wed_close, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :wed_close, :class => 'form-control' %>
+    </div>
+    <%= error_span(@schedule[:wed_close]) %>
   </div>
-  <div class="field">
-    <%= f.label :thu_open %><br>
-    <%= f.text_field :thu_open %>
+  <div class="control-group">
+    <%= f.label :thu_open, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :thu_open, :class => 'form-control' %>
+    </div>
+    <%= error_span(@schedule[:thu_open]) %>
   </div>
-  <div class="field">
-    <%= f.label :thu_close %><br>
-    <%= f.text_field :thu_close %>
+  <div class="control-group">
+    <%= f.label :thu_close, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :thu_close, :class => 'form-control' %>
+    </div>
+    <%= error_span(@schedule[:thu_close]) %>
   </div>
-  <div class="field">
-    <%= f.label :fri_open %><br>
-    <%= f.text_field :fri_open %>
+  <div class="control-group">
+    <%= f.label :fri_open, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :fri_open, :class => 'form-control' %>
+    </div>
+    <%= error_span(@schedule[:fri_open]) %>
   </div>
-  <div class="field">
-    <%= f.label :fri_close %><br>
-    <%= f.text_field :fri_close %>
+  <div class="control-group">
+    <%= f.label :fri_close, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :fri_close, :class => 'form-control' %>
+    </div>
+    <%= error_span(@schedule[:fri_close]) %>
   </div>
-  <div class="field">
-    <%= f.label :sat_open %><br>
-    <%= f.text_field :sat_open %>
+  <div class="control-group">
+    <%= f.label :sat_open, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :sat_open, :class => 'form-control' %>
+    </div>
+    <%= error_span(@schedule[:sat_open]) %>
   </div>
-  <div class="field">
-    <%= f.label :sat_close %><br>
-    <%= f.text_field :sat_close %>
+  <div class="control-group">
+    <%= f.label :sat_close, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :sat_close, :class => 'form-control' %>
+    </div>
+    <%= error_span(@schedule[:sat_close]) %>
   </div>
-  <div class="field">
-    <%= f.label :sun_open %><br>
-    <%= f.text_field :sun_open %>
+  <div class="control-group">
+    <%= f.label :sun_open, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :sun_open, :class => 'form-control' %>
+    </div>
+    <%= error_span(@schedule[:sun_open]) %>
   </div>
-  <div class="field">
-    <%= f.label :sun_close %><br>
-    <%= f.text_field :sun_close %>
+  <div class="control-group">
+    <%= f.label :sun_close, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :sun_close, :class => 'form-control' %>
+    </div>
+    <%= error_span(@schedule[:sun_close]) %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+
+
+  <%= f.submit nil, :class => 'btn btn-primary' %>
+  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+            schedules_path, :class => 'btn btn-default' %>
+
 <% end %>

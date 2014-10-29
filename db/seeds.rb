@@ -63,4 +63,4 @@ Schedule.create gym_id: 22, mon_open: "", mon_close: "", tue_open: "", tue_close
 
 Schedule.create gym_id: 23, mon_open: "7am", mon_close: "11pm", tue_open: "7am", tue_close: "11pm", wed_open: "7am", wed_close: "11pm", thu_open: "7am", thu_close: "11pm", fri_open: "7am", fri_close: "11pm", sat_open: "7am", sat_close: "10pm", sun_open: "8am", sun_close: "10pm"
 
-# rails g scaffold Schedule gym_id:integer mon_open:string mon_close:string tues_open:string tues_close:string wed_open:string wed_close:string thu_open:string thu_close:string fri_open:string fri_close:string sat_open:string sat_close:string sun_open:string sun_close:string
+# rails g scaffold Schedule gym_id:integer mon_open:string mon_close:string tue_open:string tue_close:string wed_open:string wed_close:string thu_open:string thu_close:string fri_open:string fri_close:string sat_open:string sat_close:string sun_open:string sun_close:string

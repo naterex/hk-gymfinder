@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141029031326) do
+ActiveRecord::Schema.define(version: 20141029101431) do
 
   create_table "gyms", force: true do |t|
     t.string   "brand"
@@ -41,6 +41,26 @@ ActiveRecord::Schema.define(version: 20141029031326) do
     t.integer  "membership_monthly"
     t.integer  "membership_short"
     t.integer  "membership_long"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "schedules", force: true do |t|
+    t.integer  "gym_id"
+    t.string   "mon_open"
+    t.string   "mon_close"
+    t.string   "tue_open"
+    t.string   "tue_close"
+    t.string   "wed_open"
+    t.string   "wed_close"
+    t.string   "thu_open"
+    t.string   "thu_close"
+    t.string   "fri_open"
+    t.string   "fri_close"
+    t.string   "sat_open"
+    t.string   "sat_close"
+    t.string   "sun_open"
+    t.string   "sun_close"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

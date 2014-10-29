@@ -1,35 +1,39 @@
-<h1>Listing schedules</h1>
-
-<table>
+<%- model_class = Schedule -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+</div>
+<table class="table table-striped">
   <thead>
     <tr>
-      <th>Gym</th>
-      <th>Mon open</th>
-      <th>Mon close</th>
-      <th>Tues open</th>
-      <th>Tues close</th>
-      <th>Wed open</th>
-      <th>Wed close</th>
-      <th>Thu open</th>
-      <th>Thu close</th>
-      <th>Fri open</th>
-      <th>Fri close</th>
-      <th>Sat open</th>
-      <th>Sat close</th>
-      <th>Sun open</th>
-      <th>Sun close</th>
-      <th colspan="3"></th>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:gym_id) %></th>
+      <th><%= model_class.human_attribute_name(:mon_open) %></th>
+      <th><%= model_class.human_attribute_name(:mon_close) %></th>
+      <th><%= model_class.human_attribute_name(:tue_open) %></th>
+      <th><%= model_class.human_attribute_name(:tue_close) %></th>
+      <th><%= model_class.human_attribute_name(:wed_open) %></th>
+      <th><%= model_class.human_attribute_name(:wed_close) %></th>
+      <th><%= model_class.human_attribute_name(:thu_open) %></th>
+      <th><%= model_class.human_attribute_name(:thu_close) %></th>
+      <th><%= model_class.human_attribute_name(:fri_open) %></th>
+      <th><%= model_class.human_attribute_name(:fri_close) %></th>
+      <th><%= model_class.human_attribute_name(:sat_open) %></th>
+      <th><%= model_class.human_attribute_name(:sat_close) %></th>
+      <th><%= model_class.human_attribute_name(:sun_open) %></th>
+      <th><%= model_class.human_attribute_name(:sun_close) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
-
   <tbody>
     <% @schedules.each do |schedule| %>
       <tr>
+        <td><%= link_to schedule.id, schedule_path(schedule) %></td>
         <td><%= schedule.gym_id %></td>
         <td><%= schedule.mon_open %></td>
         <td><%= schedule.mon_close %></td>
-        <td><%= schedule.tues_open %></td>
-        <td><%= schedule.tues_close %></td>
+        <td><%= schedule.tue_open %></td>
+        <td><%= schedule.tue_close %></td>
         <td><%= schedule.wed_open %></td>
         <td><%= schedule.wed_close %></td>
         <td><%= schedule.thu_open %></td>
@@ -40,14 +44,21 @@
         <td><%= schedule.sat_close %></td>
         <td><%= schedule.sun_open %></td>
         <td><%= schedule.sun_close %></td>
-        <td><%= link_to 'Show', schedule %></td>
-        <td><%= link_to 'Edit', edit_schedule_path(schedule) %></td>
-        <td><%= link_to 'Destroy', schedule, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%=l schedule.created_at %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_schedule_path(schedule), :class => 'btn btn-default btn-xs' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      schedule_path(schedule),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-xs btn-danger' %>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Schedule', new_schedule_path %>
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_schedule_path,
+            :class => 'btn btn-primary' %>

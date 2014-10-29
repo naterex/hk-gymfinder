@@ -18882,3 +18882,952 @@ Completed 200 OK in 6ms (Views: 3.7ms | ActiveRecord: 0.1ms)
   [1m[36mGym Load (0.2ms)[0m  [1mSELECT  "gyms".* FROM "gyms"   ORDER BY "gyms"."id" ASC LIMIT 1[0m
   [1m[36mGym Load (0.2ms)[0m  [1mSELECT  "gyms".* FROM "gyms"   ORDER BY "gyms"."id" ASC LIMIT 1[0m
   [1m[36m (0.1ms)[0m  [1mSELECT version FROM schema_migrations[0m
+  [1m[36m (1.0ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (0.8ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to CreateGyms (20141029031326)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  CREATE TABLE "gyms" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "brand" varchar(255), "branch" varchar(255), "territory" varchar(255), "district" varchar(255), "address" varchar(255), "telephone" varchar(255), "cardio" boolean, "crossfit" boolean, "free_weights" boolean, "group_studios" boolean, "machine_weights" boolean, "mma" boolean, "lounge" boolean, "pt" boolean, "spinning" boolean, "sauna" boolean, "steam" boolean, "spa" boolean, "pool" boolean, "yoga" boolean, "yoga_hot" boolean, "wifi" boolean, "clothes" boolean, "juice_bar" boolean, "membership_monthly" integer, "membership_short" integer, "membership_long" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20141029031326"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+Migrating to CreateSchedules (20141029091017)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  CREATE TABLE "schedules" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "gym_id" integer, "mon_open" varchar(255), "mon_close" varchar(255), "tues_open" varchar(255), "tues_close" varchar(255), "wed_open" varchar(255), "wed_close" varchar(255), "thu_open" varchar(255), "thu_close" varchar(255), "fri_open" varchar(255), "fri_close" varchar(255), "sat_open" varchar(255), "sat_close" varchar(255), "sun_open" varchar(255), "sun_close" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20141029091017"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "gyms" ("address", "branch", "brand", "cardio", "clothes", "created_at", "crossfit", "district", "free_weights", "group_studios", "juice_bar", "lounge", "machine_weights", "membership_long", "membership_monthly", "membership_short", "mma", "pool", "pt", "sauna", "spa", "spinning", "steam", "telephone", "territory", "updated_at", "wifi", "yoga", "yoga_hot") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["address", "3/F IFC Mall, 8 Finance Street"], ["branch", "IFC Mall"], ["brand", "Pure Fitness"], ["cardio", "t"], ["clothes", "t"], ["created_at", "2014-10-29 10:13:12.431855"], ["crossfit", "f"], ["district", "Central"], ["free_weights", "t"], ["group_studios", "t"], ["juice_bar", "f"], ["lounge", "f"], ["machine_weights", "t"], ["membership_long", 840], ["membership_monthly", 1500], ["membership_short", 1000], ["mma", "t"], ["pool", "f"], ["pt", "t"], ["sauna", "t"], ["spa", "f"], ["spinning", "t"], ["steam", "t"], ["telephone", "8129 8000"], ["territory", "Hong Kong"], ["updated_at", "2014-10-29 10:13:12.431855"], ["wifi", "t"], ["yoga", "t"], ["yoga_hot", "f"]]
+  [1m[35m (1.1ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "gyms" ("address", "branch", "brand", "cardio", "clothes", "created_at", "crossfit", "district", "free_weights", "group_studios", "juice_bar", "lounge", "machine_weights", "membership_long", "membership_monthly", "membership_short", "mma", "pool", "pt", "sauna", "spa", "spinning", "steam", "telephone", "territory", "updated_at", "wifi", "yoga", "yoga_hot") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["address", "3/F Kinwick Centre, 32 Hollywood Road"], ["branch", "Kinwick Centre"], ["brand", "Pure Fitness"], ["cardio", "t"], ["clothes", "t"], ["created_at", "2014-10-29 10:13:12.445270"], ["crossfit", "f"], ["district", "Soho"], ["free_weights", "t"], ["group_studios", "t"], ["juice_bar", "f"], ["lounge", "f"], ["machine_weights", "t"], ["membership_long", 840], ["membership_monthly", 1500], ["membership_short", 1000], ["mma", "t"], ["pool", "f"], ["pt", "t"], ["sauna", "f"], ["spa", "f"], ["spinning", "t"], ["steam", "f"], ["telephone", "2180 8088"], ["territory", "Hong Kong"], ["updated_at", "2014-10-29 10:13:12.445270"], ["wifi", "t"], ["yoga", "t"], ["yoga_hot", "f"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "gyms" ("address", "branch", "brand", "cardio", "clothes", "created_at", "crossfit", "district", "free_weights", "group_studios", "juice_bar", "lounge", "machine_weights", "membership_long", "membership_monthly", "membership_short", "mma", "pool", "pt", "sauna", "spa", "spinning", "steam", "telephone", "territory", "updated_at", "wifi", "yoga", "yoga_hot") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["address", "1/F, Fairmont House, 8 Cotton Tree Drive"], ["branch", "Fairmont House"], ["brand", "Pure Fitness"], ["cardio", "t"], ["clothes", "t"], ["created_at", "2014-10-29 10:13:12.453652"], ["crossfit", "f"], ["district", "Admiralty"], ["free_weights", "t"], ["group_studios", "t"], ["juice_bar", "t"], ["lounge", "t"], ["machine_weights", "t"], ["membership_long", 840], ["membership_monthly", 1500], ["membership_short", 1000], ["mma", "t"], ["pool", "f"], ["pt", "t"], ["sauna", "f"], ["spa", "f"], ["spinning", "t"], ["steam", "f"], ["telephone", "8129 2228"], ["territory", "Hong Kong"], ["updated_at", "2014-10-29 10:13:12.453652"], ["wifi", "t"], ["yoga", "t"], ["yoga_hot", "f"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "gyms" ("address", "branch", "brand", "cardio", "clothes", "created_at", "crossfit", "district", "free_weights", "group_studios", "juice_bar", "lounge", "machine_weights", "membership_long", "membership_monthly", "membership_short", "mma", "pool", "pt", "sauna", "spa", "spinning", "steam", "telephone", "territory", "updated_at", "wifi", "yoga", "yoga_hot") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["address", "15/F Lee Theatre Plaza, 99 Percival Street"], ["branch", "Lee Theatre Plaza"], ["brand", "Pure Fitness"], ["cardio", "t"], ["clothes", "t"], ["created_at", "2014-10-29 10:13:12.460819"], ["crossfit", "f"], ["district", "Causeway Bay"], ["free_weights", "t"], ["group_studios", "t"], ["juice_bar", "t"], ["lounge", "t"], ["machine_weights", "t"], ["membership_long", 840], ["membership_monthly", 1500], ["membership_short", 1000], ["mma", "t"], ["pool", "f"], ["pt", "t"], ["sauna", "t"], ["spa", "f"], ["spinning", "t"], ["steam", "t"], ["telephone", "8196 0000"], ["territory", "Hong Kong"], ["updated_at", "2014-10-29 10:13:12.460819"], ["wifi", "t"], ["yoga", "t"], ["yoga_hot", "f"]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "gyms" ("address", "branch", "brand", "cardio", "clothes", "created_at", "crossfit", "district", "free_weights", "group_studios", "juice_bar", "lounge", "machine_weights", "membership_long", "membership_monthly", "membership_short", "mma", "pool", "pt", "sauna", "spa", "spinning", "steam", "telephone", "territory", "updated_at", "wifi", "yoga", "yoga_hot") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["address", "Shop 110, The Pulse, 28 Beach Road"], ["branch", "The Pulse"], ["brand", "Pure Fitness"], ["cardio", "f"], ["clothes", "f"], ["created_at", "2014-10-29 10:13:12.468294"], ["crossfit", "f"], ["district", "Repulse Bay"], ["free_weights", "f"], ["group_studios", "f"], ["juice_bar", "f"], ["lounge", "f"], ["machine_weights", "f"], ["membership_long", 840], ["membership_monthly", 1500], ["membership_short", 1000], ["mma", "f"], ["pool", "f"], ["pt", "f"], ["sauna", "f"], ["spa", "f"], ["spinning", "f"], ["steam", "f"], ["telephone", ""], ["territory", "Hong Kong"], ["updated_at", "2014-10-29 10:13:12.468294"], ["wifi", "f"], ["yoga", "f"], ["yoga_hot", "f"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "gyms" ("address", "branch", "brand", "cardio", "clothes", "created_at", "crossfit", "district", "free_weights", "group_studios", "juice_bar", "lounge", "machine_weights", "membership_long", "membership_monthly", "membership_short", "mma", "pool", "pt", "sauna", "spa", "spinning", "steam", "telephone", "territory", "updated_at", "wifi", "yoga", "yoga_hot") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["address", "7/F, Langham Place Office Tower, 8 Argyle Street"], ["branch", "Langham Place Tower"], ["brand", "Pure Fitness"], ["cardio", "t"], ["clothes", "t"], ["created_at", "2014-10-29 10:13:12.474571"], ["crossfit", "f"], ["district", "Mongkok"], ["free_weights", "t"], ["group_studios", "t"], ["juice_bar", "f"], ["lounge", "f"], ["machine_weights", "t"], ["membership_long", 840], ["membership_monthly", 1500], ["membership_short", 1000], ["mma", "t"], ["pool", "f"], ["pt", "t"], ["sauna", "t"], ["spa", "f"], ["spinning", "t"], ["steam", "t"], ["telephone", "8129 2828"], ["territory", "Kowloon"], ["updated_at", "2014-10-29 10:13:12.474571"], ["wifi", "t"], ["yoga", "t"], ["yoga_hot", "f"]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "gyms" ("address", "branch", "brand", "cardio", "clothes", "created_at", "crossfit", "district", "free_weights", "group_studios", "juice_bar", "lounge", "machine_weights", "membership_long", "membership_monthly", "membership_short", "mma", "pool", "pt", "sauna", "spa", "spinning", "steam", "telephone", "territory", "updated_at", "wifi", "yoga", "yoga_hot") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["address", "37/F, One Exchange Square"], ["branch", "Exchange Square"], ["brand", "Fitness First"], ["cardio", "t"], ["clothes", "t"], ["created_at", "2014-10-29 10:13:12.482226"], ["crossfit", "f"], ["district", "Central"], ["free_weights", "t"], ["group_studios", "t"], ["juice_bar", "f"], ["lounge", "t"], ["machine_weights", "t"], ["membership_long", 999], ["membership_monthly", 1800], ["membership_short", 1150], ["mma", "f"], ["pool", "f"], ["pt", "t"], ["sauna", "t"], ["spa", "f"], ["spinning", "t"], ["steam", "t"], ["telephone", "2525 2900"], ["territory", "Hong Kong"], ["updated_at", "2014-10-29 10:13:12.482226"], ["wifi", "t"], ["yoga", "t"], ["yoga_hot", "f"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "gyms" ("address", "branch", "brand", "cardio", "clothes", "created_at", "crossfit", "district", "free_weights", "group_studios", "juice_bar", "lounge", "machine_weights", "membership_long", "membership_monthly", "membership_short", "mma", "pool", "pt", "sauna", "spa", "spinning", "steam", "telephone", "territory", "updated_at", "wifi", "yoga", "yoga_hot") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["address", "16/F, Hopewell Centre, 183 Queen’s Road East"], ["branch", "Hopewell Centre"], ["brand", "Fitness First"], ["cardio", "t"], ["clothes", "t"], ["created_at", "2014-10-29 10:13:12.490432"], ["crossfit", "f"], ["district", "Wan Chai"], ["free_weights", "t"], ["group_studios", "t"], ["juice_bar", "f"], ["lounge", "t"], ["machine_weights", "t"], ["membership_long", 999], ["membership_monthly", 1800], ["membership_short", 1150], ["mma", "f"], ["pool", "f"], ["pt", "t"], ["sauna", "f"], ["spa", "f"], ["spinning", "t"], ["steam", "t"], ["telephone", "3106 3878"], ["territory", "Hong Kong"], ["updated_at", "2014-10-29 10:13:12.490432"], ["wifi", "t"], ["yoga", "t"], ["yoga_hot", "t"]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "gyms" ("address", "branch", "brand", "cardio", "clothes", "created_at", "crossfit", "district", "free_weights", "group_studios", "juice_bar", "lounge", "machine_weights", "membership_long", "membership_monthly", "membership_short", "mma", "pool", "pt", "sauna", "spa", "spinning", "steam", "telephone", "territory", "updated_at", "wifi", "yoga", "yoga_hot") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["address", "4/F, Olympia Plaza, 255 King’s Road"], ["branch", "Olympia Plaza"], ["brand", "Fitness First"], ["cardio", "t"], ["clothes", "t"], ["created_at", "2014-10-29 10:13:12.497239"], ["crossfit", "f"], ["district", "North Point"], ["free_weights", "t"], ["group_studios", "t"], ["juice_bar", "f"], ["lounge", "t"], ["machine_weights", "t"], ["membership_long", 999], ["membership_monthly", 1800], ["membership_short", 1150], ["mma", "f"], ["pool", "f"], ["pt", "t"], ["sauna", "t"], ["spa", "f"], ["spinning", "t"], ["steam", "t"], ["telephone", "3106 3222"], ["territory", "Hong Kong"], ["updated_at", "2014-10-29 10:13:12.497239"], ["wifi", "t"], ["yoga", "t"], ["yoga_hot", "f"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "gyms" ("address", "branch", "brand", "cardio", "clothes", "created_at", "crossfit", "district", "free_weights", "group_studios", "juice_bar", "lounge", "machine_weights", "membership_long", "membership_monthly", "membership_short", "mma", "pool", "pt", "sauna", "spa", "spinning", "steam", "telephone", "territory", "updated_at", "wifi", "yoga", "yoga_hot") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["address", "4/F, PCCW Tower, Taikoo Place"], ["branch", "Taikoo Place"], ["brand", "Fitness First"], ["cardio", "t"], ["clothes", "t"], ["created_at", "2014-10-29 10:13:12.503799"], ["crossfit", "f"], ["district", "Quarry Bay"], ["free_weights", "t"], ["group_studios", "t"], ["juice_bar", "f"], ["lounge", "t"], ["machine_weights", "t"], ["membership_long", 999], ["membership_monthly", 1800], ["membership_short", 1150], ["mma", "f"], ["pool", "f"], ["pt", "t"], ["sauna", "t"], ["spa", "t"], ["spinning", "t"], ["steam", "t"], ["telephone", "3106 3333"], ["territory", "Kowloon"], ["updated_at", "2014-10-29 10:13:12.503799"], ["wifi", "t"], ["yoga", "f"], ["yoga_hot", "f"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "gyms" ("address", "branch", "brand", "cardio", "clothes", "created_at", "crossfit", "district", "free_weights", "group_studios", "juice_bar", "lounge", "machine_weights", "membership_long", "membership_monthly", "membership_short", "mma", "pool", "pt", "sauna", "spa", "spinning", "steam", "telephone", "territory", "updated_at", "wifi", "yoga", "yoga_hot") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["address", "25/F, One Pacific Centre, 414 Kwun Tong Road"], ["branch", "One Pacific Centre"], ["brand", "Fitness First"], ["cardio", "t"], ["clothes", "t"], ["created_at", "2014-10-29 10:13:12.512789"], ["crossfit", "f"], ["district", "Kwun Tong"], ["free_weights", "t"], ["group_studios", "t"], ["juice_bar", "f"], ["lounge", "t"], ["machine_weights", "t"], ["membership_long", 999], ["membership_monthly", 1800], ["membership_short", 1150], ["mma", "f"], ["pool", "f"], ["pt", "t"], ["sauna", "f"], ["spa", "f"], ["spinning", "t"], ["steam", "t"], ["telephone", "3106 3538"], ["territory", "Kowloon"], ["updated_at", "2014-10-29 10:13:12.512789"], ["wifi", "t"], ["yoga", "t"], ["yoga_hot", "f"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "gyms" ("address", "branch", "brand", "cardio", "clothes", "created_at", "crossfit", "district", "free_weights", "group_studios", "juice_bar", "lounge", "machine_weights", "membership_long", "membership_monthly", "membership_short", "mma", "pool", "pt", "sauna", "spa", "spinning", "steam", "telephone", "territory", "updated_at", "wifi", "yoga", "yoga_hot") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["address", "5/F, World Commerce Centre, 11 Canton Road"], ["branch", "Harbour City"], ["brand", "Fitness First"], ["cardio", "t"], ["clothes", "t"], ["created_at", "2014-10-29 10:13:12.519776"], ["crossfit", "f"], ["district", "Tsim Sha Tsui"], ["free_weights", "t"], ["group_studios", "t"], ["juice_bar", "f"], ["lounge", "t"], ["machine_weights", "t"], ["membership_long", 999], ["membership_monthly", 1800], ["membership_short", 1150], ["mma", "f"], ["pool", "f"], ["pt", "t"], ["sauna", "f"], ["spa", "f"], ["spinning", "t"], ["steam", "f"], ["telephone", "3106 3111"], ["territory", "Kowloon"], ["updated_at", "2014-10-29 10:13:12.519776"], ["wifi", "t"], ["yoga", "t"], ["yoga_hot", "f"]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "gyms" ("address", "branch", "brand", "cardio", "clothes", "created_at", "crossfit", "district", "free_weights", "group_studios", "juice_bar", "lounge", "machine_weights", "membership_long", "membership_monthly", "membership_short", "mma", "pool", "pt", "sauna", "spa", "spinning", "steam", "telephone", "territory", "updated_at", "wifi", "yoga", "yoga_hot") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["address", "18/F, Sheraton Hotel, 20 Nathan Road"], ["branch", "Sheraton"], ["brand", "Fitness First"], ["cardio", "t"], ["clothes", "t"], ["created_at", "2014-10-29 10:13:12.528497"], ["crossfit", "f"], ["district", "Tsim Sha Tsui"], ["free_weights", "t"], ["group_studios", "t"], ["juice_bar", "f"], ["lounge", "f"], ["machine_weights", "t"], ["membership_long", 999], ["membership_monthly", 1800], ["membership_short", 1150], ["mma", "f"], ["pool", "t"], ["pt", "t"], ["sauna", "t"], ["spa", "t"], ["spinning", "f"], ["steam", "f"], ["telephone", "2732 6801"], ["territory", "Kowloon"], ["updated_at", "2014-10-29 10:13:12.528497"], ["wifi", "t"], ["yoga", "t"], ["yoga_hot", "f"]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "gyms" ("address", "branch", "brand", "cardio", "clothes", "created_at", "crossfit", "district", "free_weights", "group_studios", "juice_bar", "lounge", "machine_weights", "membership_long", "membership_monthly", "membership_short", "mma", "pool", "pt", "sauna", "spa", "spinning", "steam", "telephone", "territory", "updated_at", "wifi", "yoga", "yoga_hot") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["address", "6/F, the L Place, 139 Queen's Road"], ["branch", "The L Place"], ["brand", "California Fitness"], ["cardio", "t"], ["clothes", "f"], ["created_at", "2014-10-29 10:13:12.540409"], ["crossfit", "f"], ["district", "Central"], ["free_weights", "t"], ["group_studios", "t"], ["juice_bar", "f"], ["lounge", "f"], ["machine_weights", "t"], ["membership_long", 901], ["membership_monthly", 1599], ["membership_short", 1099], ["mma", "f"], ["pool", "f"], ["pt", "t"], ["sauna", "t"], ["spa", "f"], ["spinning", "t"], ["steam", "t"], ["telephone", "2522 5229"], ["territory", "Hong Kong"], ["updated_at", "2014-10-29 10:13:12.540409"], ["wifi", "t"], ["yoga", "t"], ["yoga_hot", "f"]]
+  [1m[36m (1.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "gyms" ("address", "branch", "brand", "cardio", "clothes", "created_at", "crossfit", "district", "free_weights", "group_studios", "juice_bar", "lounge", "machine_weights", "membership_long", "membership_monthly", "membership_short", "mma", "pool", "pt", "sauna", "spa", "spinning", "steam", "telephone", "territory", "updated_at", "wifi", "yoga", "yoga_hot") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["address", "4/F, Elizabeth House, 250 Gloucester Road"], ["branch", "Elizabeth House"], ["brand", "California Fitness"], ["cardio", "t"], ["clothes", "f"], ["created_at", "2014-10-29 10:13:12.551220"], ["crossfit", "f"], ["district", "Causeway Bay"], ["free_weights", "t"], ["group_studios", "t"], ["juice_bar", "f"], ["lounge", "f"], ["machine_weights", "t"], ["membership_long", 901], ["membership_monthly", 1599], ["membership_short", 1099], ["mma", "t"], ["pool", "f"], ["pt", "t"], ["sauna", "t"], ["spa", "f"], ["spinning", "t"], ["steam", "t"], ["telephone", "2577 0004"], ["territory", "Hong Kong"], ["updated_at", "2014-10-29 10:13:12.551220"], ["wifi", "t"], ["yoga", "t"], ["yoga_hot", "f"]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "gyms" ("address", "branch", "brand", "cardio", "clothes", "created_at", "crossfit", "district", "free_weights", "group_studios", "juice_bar", "lounge", "machine_weights", "membership_long", "membership_monthly", "membership_short", "mma", "pool", "pt", "sauna", "spa", "spinning", "steam", "telephone", "territory", "updated_at", "wifi", "yoga", "yoga_hot") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["address", "G/F, Kin Lee Building, 9-13 O'Brien Road"], ["branch", "Kin Lee Building"], ["brand", "California Fitness"], ["cardio", "t"], ["clothes", "f"], ["created_at", "2014-10-29 10:13:12.562446"], ["crossfit", "f"], ["district", "Wan Chai"], ["free_weights", "t"], ["group_studios", "t"], ["juice_bar", "f"], ["lounge", "f"], ["machine_weights", "t"], ["membership_long", 901], ["membership_monthly", 1599], ["membership_short", 1099], ["mma", "t"], ["pool", "f"], ["pt", "t"], ["sauna", "t"], ["spa", "f"], ["spinning", "t"], ["steam", "t"], ["telephone", "2877 7070"], ["territory", "Hong Kong"], ["updated_at", "2014-10-29 10:13:12.562446"], ["wifi", "t"], ["yoga", "t"], ["yoga_hot", "f"]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "gyms" ("address", "branch", "brand", "cardio", "clothes", "created_at", "crossfit", "district", "free_weights", "group_studios", "juice_bar", "lounge", "machine_weights", "membership_long", "membership_monthly", "membership_short", "mma", "pool", "pt", "sauna", "spa", "spinning", "steam", "telephone", "territory", "updated_at", "wifi", "yoga", "yoga_hot") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["address", "Parkvale, 1060 King's Road"], ["branch", "Parkvale"], ["brand", "California Fitness"], ["cardio", "t"], ["clothes", "f"], ["created_at", "2014-10-29 10:13:12.572905"], ["crossfit", "f"], ["district", "Quarry Bay"], ["free_weights", "t"], ["group_studios", "t"], ["juice_bar", "f"], ["lounge", "f"], ["machine_weights", "t"], ["membership_long", 901], ["membership_monthly", 1599], ["membership_short", 1099], ["mma", "t"], ["pool", "f"], ["pt", "t"], ["sauna", "t"], ["spa", "f"], ["spinning", "t"], ["steam", "t"], ["telephone", "2880 9660"], ["territory", "Hong Kong"], ["updated_at", "2014-10-29 10:13:12.572905"], ["wifi", "t"], ["yoga", "t"], ["yoga_hot", "f"]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "gyms" ("address", "branch", "brand", "cardio", "clothes", "created_at", "crossfit", "district", "free_weights", "group_studios", "juice_bar", "lounge", "machine_weights", "membership_long", "membership_monthly", "membership_short", "mma", "pool", "pt", "sauna", "spa", "spinning", "steam", "telephone", "territory", "updated_at", "wifi", "yoga", "yoga_hot") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["address", "9/F, The ONE, 100 Nathan Road"], ["branch", "The ONE"], ["brand", "California Fitness"], ["cardio", "t"], ["clothes", "f"], ["created_at", "2014-10-29 10:13:12.581221"], ["crossfit", "f"], ["district", "Tsim Sha Tsui"], ["free_weights", "t"], ["group_studios", "t"], ["juice_bar", "t"], ["lounge", "f"], ["machine_weights", "t"], ["membership_long", 901], ["membership_monthly", 1599], ["membership_short", 1099], ["mma", "t"], ["pool", "f"], ["pt", "t"], ["sauna", "t"], ["spa", "f"], ["spinning", "t"], ["steam", "t"], ["telephone", "2366 8666"], ["territory", "Kowloon"], ["updated_at", "2014-10-29 10:13:12.581221"], ["wifi", "t"], ["yoga", "t"], ["yoga_hot", "f"]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "gyms" ("address", "branch", "brand", "cardio", "clothes", "created_at", "crossfit", "district", "free_weights", "group_studios", "juice_bar", "lounge", "machine_weights", "membership_long", "membership_monthly", "membership_short", "mma", "pool", "pt", "sauna", "spa", "spinning", "steam", "telephone", "territory", "updated_at", "wifi", "yoga", "yoga_hot") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["address", "5/F, Grand Plaza, 639 Nathan Road"], ["branch", "Grand Plaza"], ["brand", "California Fitness"], ["cardio", "t"], ["clothes", "f"], ["created_at", "2014-10-29 10:13:12.590790"], ["crossfit", "f"], ["district", "Mongkok"], ["free_weights", "t"], ["group_studios", "t"], ["juice_bar", "t"], ["lounge", "f"], ["machine_weights", "t"], ["membership_long", 901], ["membership_monthly", 1599], ["membership_short", 1099], ["mma", "t"], ["pool", "f"], ["pt", "t"], ["sauna", "t"], ["spa", "f"], ["spinning", "t"], ["steam", "t"], ["telephone", "2522 1000"], ["territory", "Kowloon"], ["updated_at", "2014-10-29 10:13:12.590790"], ["wifi", "t"], ["yoga", "t"], ["yoga_hot", "f"]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "gyms" ("address", "branch", "brand", "cardio", "clothes", "created_at", "crossfit", "district", "free_weights", "group_studios", "juice_bar", "lounge", "machine_weights", "membership_long", "membership_monthly", "membership_short", "mma", "pool", "pt", "sauna", "spa", "spinning", "steam", "telephone", "territory", "updated_at", "wifi", "yoga", "yoga_hot") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["address", "18/F, MegaBox, 38 Wang Chiu Road"], ["branch", "Megabox"], ["brand", "California Fitness"], ["cardio", "t"], ["clothes", "f"], ["created_at", "2014-10-29 10:13:12.598720"], ["crossfit", "f"], ["district", "Kowloon Bay"], ["free_weights", "t"], ["group_studios", "t"], ["juice_bar", "t"], ["lounge", "f"], ["machine_weights", "t"], ["membership_long", 901], ["membership_monthly", 1599], ["membership_short", 1099], ["mma", "t"], ["pool", "t"], ["pt", "t"], ["sauna", "t"], ["spa", "f"], ["spinning", "t"], ["steam", "t"], ["telephone", "2250 5022"], ["territory", "Kowloon"], ["updated_at", "2014-10-29 10:13:12.598720"], ["wifi", "t"], ["yoga", "t"], ["yoga_hot", "f"]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "gyms" ("address", "branch", "brand", "cardio", "clothes", "created_at", "crossfit", "district", "free_weights", "group_studios", "juice_bar", "lounge", "machine_weights", "membership_long", "membership_monthly", "membership_short", "mma", "pool", "pt", "sauna", "spa", "spinning", "steam", "telephone", "territory", "updated_at", "wifi", "yoga", "yoga_hot") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["address", "G/F, Treasure World (Site 11), Whampoa Garden"], ["branch", "Whampoa"], ["brand", "California Fitness"], ["cardio", "t"], ["clothes", "f"], ["created_at", "2014-10-29 10:13:12.605610"], ["crossfit", "f"], ["district", "Hunghom"], ["free_weights", "t"], ["group_studios", "t"], ["juice_bar", "t"], ["lounge", "f"], ["machine_weights", "t"], ["membership_long", 901], ["membership_monthly", 1599], ["membership_short", 1099], ["mma", "t"], ["pool", "f"], ["pt", "t"], ["sauna", "t"], ["spa", "f"], ["spinning", "t"], ["steam", "t"], ["telephone", "2622 2228"], ["territory", "Kowloon"], ["updated_at", "2014-10-29 10:13:12.605610"], ["wifi", "t"], ["yoga", "t"], ["yoga_hot", "f"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "gyms" ("address", "branch", "brand", "cardio", "clothes", "created_at", "crossfit", "district", "free_weights", "group_studios", "juice_bar", "lounge", "machine_weights", "membership_long", "membership_monthly", "membership_short", "mma", "pool", "pt", "sauna", "spa", "spinning", "steam", "telephone", "territory", "updated_at", "wifi", "yoga", "yoga_hot") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["address", "Tuen Mun Centre, 7-35 Yan Ching Street"], ["branch", "Tuen Mun Centre"], ["brand", "California Fitness"], ["cardio", "f"], ["clothes", "f"], ["created_at", "2014-10-29 10:13:12.612832"], ["crossfit", "f"], ["district", "Tuen Mun"], ["free_weights", "f"], ["group_studios", "f"], ["juice_bar", "f"], ["lounge", "f"], ["machine_weights", "f"], ["membership_long", 901], ["membership_monthly", 1599], ["membership_short", 1099], ["mma", "f"], ["pool", "f"], ["pt", "f"], ["sauna", "f"], ["spa", "f"], ["spinning", "f"], ["steam", "f"], ["telephone", "2618 3008"], ["territory", "Kowloon"], ["updated_at", "2014-10-29 10:13:12.612832"], ["wifi", "f"], ["yoga", "f"], ["yoga_hot", "f"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "gyms" ("address", "branch", "brand", "cardio", "clothes", "created_at", "crossfit", "district", "free_weights", "group_studios", "juice_bar", "lounge", "machine_weights", "membership_long", "membership_monthly", "membership_short", "mma", "pool", "pt", "sauna", "spa", "spinning", "steam", "telephone", "territory", "updated_at", "wifi", "yoga", "yoga_hot") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["address", "2/F, Concord Square, 88 Chuen Lung Street"], ["branch", "Concord Square"], ["brand", "Physical Fitness"], ["cardio", "t"], ["clothes", "f"], ["created_at", "2014-10-29 10:13:12.618773"], ["crossfit", "f"], ["district", "Tsuen Wan"], ["free_weights", "t"], ["group_studios", "t"], ["juice_bar", "f"], ["lounge", "t"], ["machine_weights", "t"], ["membership_long", 666], ["membership_monthly", 1111], ["membership_short", 888], ["mma", "f"], ["pool", "f"], ["pt", "t"], ["sauna", "t"], ["spa", "f"], ["spinning", "t"], ["steam", "t"], ["telephone", "3710 7777"], ["territory", "New Territories"], ["updated_at", "2014-10-29 10:13:12.618773"], ["wifi", "t"], ["yoga", "t"], ["yoga_hot", "f"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (1.5ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (0.9ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to CreateGyms (20141029031326)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.6ms)[0m  CREATE TABLE "gyms" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "brand" varchar(255), "branch" varchar(255), "territory" varchar(255), "district" varchar(255), "address" varchar(255), "telephone" varchar(255), "cardio" boolean, "crossfit" boolean, "free_weights" boolean, "group_studios" boolean, "machine_weights" boolean, "mma" boolean, "lounge" boolean, "pt" boolean, "spinning" boolean, "sauna" boolean, "steam" boolean, "spa" boolean, "pool" boolean, "yoga" boolean, "yoga_hot" boolean, "wifi" boolean, "clothes" boolean, "juice_bar" boolean, "membership_monthly" integer, "membership_short" integer, "membership_long" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20141029031326"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+Migrating to CreateSchedules (20141029101431)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  CREATE TABLE "schedules" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "gym_id" integer, "mon_open" varchar(255), "mon_close" varchar(255), "tue_open" varchar(255), "tue_close" varchar(255), "wed_open" varchar(255), "wed_close" varchar(255), "thu_open" varchar(255), "thu_close" varchar(255), "fri_open" varchar(255), "fri_close" varchar(255), "sat_open" varchar(255), "sat_close" varchar(255), "sun_open" varchar(255), "sun_close" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20141029101431"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "gyms" ("address", "branch", "brand", "cardio", "clothes", "created_at", "crossfit", "district", "free_weights", "group_studios", "juice_bar", "lounge", "machine_weights", "membership_long", "membership_monthly", "membership_short", "mma", "pool", "pt", "sauna", "spa", "spinning", "steam", "telephone", "territory", "updated_at", "wifi", "yoga", "yoga_hot") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["address", "3/F IFC Mall, 8 Finance Street"], ["branch", "IFC Mall"], ["brand", "Pure Fitness"], ["cardio", "t"], ["clothes", "t"], ["created_at", "2014-10-29 10:14:52.693890"], ["crossfit", "f"], ["district", "Central"], ["free_weights", "t"], ["group_studios", "t"], ["juice_bar", "f"], ["lounge", "f"], ["machine_weights", "t"], ["membership_long", 840], ["membership_monthly", 1500], ["membership_short", 1000], ["mma", "t"], ["pool", "f"], ["pt", "t"], ["sauna", "t"], ["spa", "f"], ["spinning", "t"], ["steam", "t"], ["telephone", "8129 8000"], ["territory", "Hong Kong"], ["updated_at", "2014-10-29 10:14:52.693890"], ["wifi", "t"], ["yoga", "t"], ["yoga_hot", "f"]]
+  [1m[35m (1.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "gyms" ("address", "branch", "brand", "cardio", "clothes", "created_at", "crossfit", "district", "free_weights", "group_studios", "juice_bar", "lounge", "machine_weights", "membership_long", "membership_monthly", "membership_short", "mma", "pool", "pt", "sauna", "spa", "spinning", "steam", "telephone", "territory", "updated_at", "wifi", "yoga", "yoga_hot") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["address", "3/F Kinwick Centre, 32 Hollywood Road"], ["branch", "Kinwick Centre"], ["brand", "Pure Fitness"], ["cardio", "t"], ["clothes", "t"], ["created_at", "2014-10-29 10:14:52.703383"], ["crossfit", "f"], ["district", "Soho"], ["free_weights", "t"], ["group_studios", "t"], ["juice_bar", "f"], ["lounge", "f"], ["machine_weights", "t"], ["membership_long", 840], ["membership_monthly", 1500], ["membership_short", 1000], ["mma", "t"], ["pool", "f"], ["pt", "t"], ["sauna", "f"], ["spa", "f"], ["spinning", "t"], ["steam", "f"], ["telephone", "2180 8088"], ["territory", "Hong Kong"], ["updated_at", "2014-10-29 10:14:52.703383"], ["wifi", "t"], ["yoga", "t"], ["yoga_hot", "f"]]
+  [1m[36m (1.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "gyms" ("address", "branch", "brand", "cardio", "clothes", "created_at", "crossfit", "district", "free_weights", "group_studios", "juice_bar", "lounge", "machine_weights", "membership_long", "membership_monthly", "membership_short", "mma", "pool", "pt", "sauna", "spa", "spinning", "steam", "telephone", "territory", "updated_at", "wifi", "yoga", "yoga_hot") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["address", "1/F, Fairmont House, 8 Cotton Tree Drive"], ["branch", "Fairmont House"], ["brand", "Pure Fitness"], ["cardio", "t"], ["clothes", "t"], ["created_at", "2014-10-29 10:14:52.712688"], ["crossfit", "f"], ["district", "Admiralty"], ["free_weights", "t"], ["group_studios", "t"], ["juice_bar", "t"], ["lounge", "t"], ["machine_weights", "t"], ["membership_long", 840], ["membership_monthly", 1500], ["membership_short", 1000], ["mma", "t"], ["pool", "f"], ["pt", "t"], ["sauna", "f"], ["spa", "f"], ["spinning", "t"], ["steam", "f"], ["telephone", "8129 2228"], ["territory", "Hong Kong"], ["updated_at", "2014-10-29 10:14:52.712688"], ["wifi", "t"], ["yoga", "t"], ["yoga_hot", "f"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "gyms" ("address", "branch", "brand", "cardio", "clothes", "created_at", "crossfit", "district", "free_weights", "group_studios", "juice_bar", "lounge", "machine_weights", "membership_long", "membership_monthly", "membership_short", "mma", "pool", "pt", "sauna", "spa", "spinning", "steam", "telephone", "territory", "updated_at", "wifi", "yoga", "yoga_hot") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["address", "15/F Lee Theatre Plaza, 99 Percival Street"], ["branch", "Lee Theatre Plaza"], ["brand", "Pure Fitness"], ["cardio", "t"], ["clothes", "t"], ["created_at", "2014-10-29 10:14:52.719916"], ["crossfit", "f"], ["district", "Causeway Bay"], ["free_weights", "t"], ["group_studios", "t"], ["juice_bar", "t"], ["lounge", "t"], ["machine_weights", "t"], ["membership_long", 840], ["membership_monthly", 1500], ["membership_short", 1000], ["mma", "t"], ["pool", "f"], ["pt", "t"], ["sauna", "t"], ["spa", "f"], ["spinning", "t"], ["steam", "t"], ["telephone", "8196 0000"], ["territory", "Hong Kong"], ["updated_at", "2014-10-29 10:14:52.719916"], ["wifi", "t"], ["yoga", "t"], ["yoga_hot", "f"]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "gyms" ("address", "branch", "brand", "cardio", "clothes", "created_at", "crossfit", "district", "free_weights", "group_studios", "juice_bar", "lounge", "machine_weights", "membership_long", "membership_monthly", "membership_short", "mma", "pool", "pt", "sauna", "spa", "spinning", "steam", "telephone", "territory", "updated_at", "wifi", "yoga", "yoga_hot") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["address", "Shop 110, The Pulse, 28 Beach Road"], ["branch", "The Pulse"], ["brand", "Pure Fitness"], ["cardio", "f"], ["clothes", "f"], ["created_at", "2014-10-29 10:14:52.727693"], ["crossfit", "f"], ["district", "Repulse Bay"], ["free_weights", "f"], ["group_studios", "f"], ["juice_bar", "f"], ["lounge", "f"], ["machine_weights", "f"], ["membership_long", 840], ["membership_monthly", 1500], ["membership_short", 1000], ["mma", "f"], ["pool", "f"], ["pt", "f"], ["sauna", "f"], ["spa", "f"], ["spinning", "f"], ["steam", "f"], ["telephone", ""], ["territory", "Hong Kong"], ["updated_at", "2014-10-29 10:14:52.727693"], ["wifi", "f"], ["yoga", "f"], ["yoga_hot", "f"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "gyms" ("address", "branch", "brand", "cardio", "clothes", "created_at", "crossfit", "district", "free_weights", "group_studios", "juice_bar", "lounge", "machine_weights", "membership_long", "membership_monthly", "membership_short", "mma", "pool", "pt", "sauna", "spa", "spinning", "steam", "telephone", "territory", "updated_at", "wifi", "yoga", "yoga_hot") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["address", "7/F, Langham Place Office Tower, 8 Argyle Street"], ["branch", "Langham Place Tower"], ["brand", "Pure Fitness"], ["cardio", "t"], ["clothes", "t"], ["created_at", "2014-10-29 10:14:52.735926"], ["crossfit", "f"], ["district", "Mongkok"], ["free_weights", "t"], ["group_studios", "t"], ["juice_bar", "f"], ["lounge", "f"], ["machine_weights", "t"], ["membership_long", 840], ["membership_monthly", 1500], ["membership_short", 1000], ["mma", "t"], ["pool", "f"], ["pt", "t"], ["sauna", "t"], ["spa", "f"], ["spinning", "t"], ["steam", "t"], ["telephone", "8129 2828"], ["territory", "Kowloon"], ["updated_at", "2014-10-29 10:14:52.735926"], ["wifi", "t"], ["yoga", "t"], ["yoga_hot", "f"]]
+  [1m[36m (0.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "gyms" ("address", "branch", "brand", "cardio", "clothes", "created_at", "crossfit", "district", "free_weights", "group_studios", "juice_bar", "lounge", "machine_weights", "membership_long", "membership_monthly", "membership_short", "mma", "pool", "pt", "sauna", "spa", "spinning", "steam", "telephone", "territory", "updated_at", "wifi", "yoga", "yoga_hot") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["address", "37/F, One Exchange Square"], ["branch", "Exchange Square"], ["brand", "Fitness First"], ["cardio", "t"], ["clothes", "t"], ["created_at", "2014-10-29 10:14:52.742653"], ["crossfit", "f"], ["district", "Central"], ["free_weights", "t"], ["group_studios", "t"], ["juice_bar", "f"], ["lounge", "t"], ["machine_weights", "t"], ["membership_long", 999], ["membership_monthly", 1800], ["membership_short", 1150], ["mma", "f"], ["pool", "f"], ["pt", "t"], ["sauna", "t"], ["spa", "f"], ["spinning", "t"], ["steam", "t"], ["telephone", "2525 2900"], ["territory", "Hong Kong"], ["updated_at", "2014-10-29 10:14:52.742653"], ["wifi", "t"], ["yoga", "t"], ["yoga_hot", "f"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "gyms" ("address", "branch", "brand", "cardio", "clothes", "created_at", "crossfit", "district", "free_weights", "group_studios", "juice_bar", "lounge", "machine_weights", "membership_long", "membership_monthly", "membership_short", "mma", "pool", "pt", "sauna", "spa", "spinning", "steam", "telephone", "territory", "updated_at", "wifi", "yoga", "yoga_hot") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["address", "16/F, Hopewell Centre, 183 Queen’s Road East"], ["branch", "Hopewell Centre"], ["brand", "Fitness First"], ["cardio", "t"], ["clothes", "t"], ["created_at", "2014-10-29 10:14:52.750155"], ["crossfit", "f"], ["district", "Wan Chai"], ["free_weights", "t"], ["group_studios", "t"], ["juice_bar", "f"], ["lounge", "t"], ["machine_weights", "t"], ["membership_long", 999], ["membership_monthly", 1800], ["membership_short", 1150], ["mma", "f"], ["pool", "f"], ["pt", "t"], ["sauna", "f"], ["spa", "f"], ["spinning", "t"], ["steam", "t"], ["telephone", "3106 3878"], ["territory", "Hong Kong"], ["updated_at", "2014-10-29 10:14:52.750155"], ["wifi", "t"], ["yoga", "t"], ["yoga_hot", "t"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "gyms" ("address", "branch", "brand", "cardio", "clothes", "created_at", "crossfit", "district", "free_weights", "group_studios", "juice_bar", "lounge", "machine_weights", "membership_long", "membership_monthly", "membership_short", "mma", "pool", "pt", "sauna", "spa", "spinning", "steam", "telephone", "territory", "updated_at", "wifi", "yoga", "yoga_hot") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["address", "4/F, Olympia Plaza, 255 King’s Road"], ["branch", "Olympia Plaza"], ["brand", "Fitness First"], ["cardio", "t"], ["clothes", "t"], ["created_at", "2014-10-29 10:14:52.757890"], ["crossfit", "f"], ["district", "North Point"], ["free_weights", "t"], ["group_studios", "t"], ["juice_bar", "f"], ["lounge", "t"], ["machine_weights", "t"], ["membership_long", 999], ["membership_monthly", 1800], ["membership_short", 1150], ["mma", "f"], ["pool", "f"], ["pt", "t"], ["sauna", "t"], ["spa", "f"], ["spinning", "t"], ["steam", "t"], ["telephone", "3106 3222"], ["territory", "Hong Kong"], ["updated_at", "2014-10-29 10:14:52.757890"], ["wifi", "t"], ["yoga", "t"], ["yoga_hot", "f"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "gyms" ("address", "branch", "brand", "cardio", "clothes", "created_at", "crossfit", "district", "free_weights", "group_studios", "juice_bar", "lounge", "machine_weights", "membership_long", "membership_monthly", "membership_short", "mma", "pool", "pt", "sauna", "spa", "spinning", "steam", "telephone", "territory", "updated_at", "wifi", "yoga", "yoga_hot") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["address", "4/F, PCCW Tower, Taikoo Place"], ["branch", "Taikoo Place"], ["brand", "Fitness First"], ["cardio", "t"], ["clothes", "t"], ["created_at", "2014-10-29 10:14:52.766204"], ["crossfit", "f"], ["district", "Quarry Bay"], ["free_weights", "t"], ["group_studios", "t"], ["juice_bar", "f"], ["lounge", "t"], ["machine_weights", "t"], ["membership_long", 999], ["membership_monthly", 1800], ["membership_short", 1150], ["mma", "f"], ["pool", "f"], ["pt", "t"], ["sauna", "t"], ["spa", "t"], ["spinning", "t"], ["steam", "t"], ["telephone", "3106 3333"], ["territory", "Kowloon"], ["updated_at", "2014-10-29 10:14:52.766204"], ["wifi", "t"], ["yoga", "f"], ["yoga_hot", "f"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "gyms" ("address", "branch", "brand", "cardio", "clothes", "created_at", "crossfit", "district", "free_weights", "group_studios", "juice_bar", "lounge", "machine_weights", "membership_long", "membership_monthly", "membership_short", "mma", "pool", "pt", "sauna", "spa", "spinning", "steam", "telephone", "territory", "updated_at", "wifi", "yoga", "yoga_hot") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["address", "25/F, One Pacific Centre, 414 Kwun Tong Road"], ["branch", "One Pacific Centre"], ["brand", "Fitness First"], ["cardio", "t"], ["clothes", "t"], ["created_at", "2014-10-29 10:14:52.776156"], ["crossfit", "f"], ["district", "Kwun Tong"], ["free_weights", "t"], ["group_studios", "t"], ["juice_bar", "f"], ["lounge", "t"], ["machine_weights", "t"], ["membership_long", 999], ["membership_monthly", 1800], ["membership_short", 1150], ["mma", "f"], ["pool", "f"], ["pt", "t"], ["sauna", "f"], ["spa", "f"], ["spinning", "t"], ["steam", "t"], ["telephone", "3106 3538"], ["territory", "Kowloon"], ["updated_at", "2014-10-29 10:14:52.776156"], ["wifi", "t"], ["yoga", "t"], ["yoga_hot", "f"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "gyms" ("address", "branch", "brand", "cardio", "clothes", "created_at", "crossfit", "district", "free_weights", "group_studios", "juice_bar", "lounge", "machine_weights", "membership_long", "membership_monthly", "membership_short", "mma", "pool", "pt", "sauna", "spa", "spinning", "steam", "telephone", "territory", "updated_at", "wifi", "yoga", "yoga_hot") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["address", "5/F, World Commerce Centre, 11 Canton Road"], ["branch", "Harbour City"], ["brand", "Fitness First"], ["cardio", "t"], ["clothes", "t"], ["created_at", "2014-10-29 10:14:52.784786"], ["crossfit", "f"], ["district", "Tsim Sha Tsui"], ["free_weights", "t"], ["group_studios", "t"], ["juice_bar", "f"], ["lounge", "t"], ["machine_weights", "t"], ["membership_long", 999], ["membership_monthly", 1800], ["membership_short", 1150], ["mma", "f"], ["pool", "f"], ["pt", "t"], ["sauna", "f"], ["spa", "f"], ["spinning", "t"], ["steam", "f"], ["telephone", "3106 3111"], ["territory", "Kowloon"], ["updated_at", "2014-10-29 10:14:52.784786"], ["wifi", "t"], ["yoga", "t"], ["yoga_hot", "f"]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "gyms" ("address", "branch", "brand", "cardio", "clothes", "created_at", "crossfit", "district", "free_weights", "group_studios", "juice_bar", "lounge", "machine_weights", "membership_long", "membership_monthly", "membership_short", "mma", "pool", "pt", "sauna", "spa", "spinning", "steam", "telephone", "territory", "updated_at", "wifi", "yoga", "yoga_hot") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["address", "18/F, Sheraton Hotel, 20 Nathan Road"], ["branch", "Sheraton"], ["brand", "Fitness First"], ["cardio", "t"], ["clothes", "t"], ["created_at", "2014-10-29 10:14:52.794244"], ["crossfit", "f"], ["district", "Tsim Sha Tsui"], ["free_weights", "t"], ["group_studios", "t"], ["juice_bar", "f"], ["lounge", "f"], ["machine_weights", "t"], ["membership_long", 999], ["membership_monthly", 1800], ["membership_short", 1150], ["mma", "f"], ["pool", "t"], ["pt", "t"], ["sauna", "t"], ["spa", "t"], ["spinning", "f"], ["steam", "f"], ["telephone", "2732 6801"], ["territory", "Kowloon"], ["updated_at", "2014-10-29 10:14:52.794244"], ["wifi", "t"], ["yoga", "t"], ["yoga_hot", "f"]]
+  [1m[35m (1.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "gyms" ("address", "branch", "brand", "cardio", "clothes", "created_at", "crossfit", "district", "free_weights", "group_studios", "juice_bar", "lounge", "machine_weights", "membership_long", "membership_monthly", "membership_short", "mma", "pool", "pt", "sauna", "spa", "spinning", "steam", "telephone", "territory", "updated_at", "wifi", "yoga", "yoga_hot") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["address", "6/F, the L Place, 139 Queen's Road"], ["branch", "The L Place"], ["brand", "California Fitness"], ["cardio", "t"], ["clothes", "f"], ["created_at", "2014-10-29 10:14:52.803091"], ["crossfit", "f"], ["district", "Central"], ["free_weights", "t"], ["group_studios", "t"], ["juice_bar", "f"], ["lounge", "f"], ["machine_weights", "t"], ["membership_long", 901], ["membership_monthly", 1599], ["membership_short", 1099], ["mma", "f"], ["pool", "f"], ["pt", "t"], ["sauna", "t"], ["spa", "f"], ["spinning", "t"], ["steam", "t"], ["telephone", "2522 5229"], ["territory", "Hong Kong"], ["updated_at", "2014-10-29 10:14:52.803091"], ["wifi", "t"], ["yoga", "t"], ["yoga_hot", "f"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "gyms" ("address", "branch", "brand", "cardio", "clothes", "created_at", "crossfit", "district", "free_weights", "group_studios", "juice_bar", "lounge", "machine_weights", "membership_long", "membership_monthly", "membership_short", "mma", "pool", "pt", "sauna", "spa", "spinning", "steam", "telephone", "territory", "updated_at", "wifi", "yoga", "yoga_hot") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["address", "4/F, Elizabeth House, 250 Gloucester Road"], ["branch", "Elizabeth House"], ["brand", "California Fitness"], ["cardio", "t"], ["clothes", "f"], ["created_at", "2014-10-29 10:14:52.809094"], ["crossfit", "f"], ["district", "Causeway Bay"], ["free_weights", "t"], ["group_studios", "t"], ["juice_bar", "f"], ["lounge", "f"], ["machine_weights", "t"], ["membership_long", 901], ["membership_monthly", 1599], ["membership_short", 1099], ["mma", "t"], ["pool", "f"], ["pt", "t"], ["sauna", "t"], ["spa", "f"], ["spinning", "t"], ["steam", "t"], ["telephone", "2577 0004"], ["territory", "Hong Kong"], ["updated_at", "2014-10-29 10:14:52.809094"], ["wifi", "t"], ["yoga", "t"], ["yoga_hot", "f"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "gyms" ("address", "branch", "brand", "cardio", "clothes", "created_at", "crossfit", "district", "free_weights", "group_studios", "juice_bar", "lounge", "machine_weights", "membership_long", "membership_monthly", "membership_short", "mma", "pool", "pt", "sauna", "spa", "spinning", "steam", "telephone", "territory", "updated_at", "wifi", "yoga", "yoga_hot") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["address", "G/F, Kin Lee Building, 9-13 O'Brien Road"], ["branch", "Kin Lee Building"], ["brand", "California Fitness"], ["cardio", "t"], ["clothes", "f"], ["created_at", "2014-10-29 10:14:52.817092"], ["crossfit", "f"], ["district", "Wan Chai"], ["free_weights", "t"], ["group_studios", "t"], ["juice_bar", "f"], ["lounge", "f"], ["machine_weights", "t"], ["membership_long", 901], ["membership_monthly", 1599], ["membership_short", 1099], ["mma", "t"], ["pool", "f"], ["pt", "t"], ["sauna", "t"], ["spa", "f"], ["spinning", "t"], ["steam", "t"], ["telephone", "2877 7070"], ["territory", "Hong Kong"], ["updated_at", "2014-10-29 10:14:52.817092"], ["wifi", "t"], ["yoga", "t"], ["yoga_hot", "f"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "gyms" ("address", "branch", "brand", "cardio", "clothes", "created_at", "crossfit", "district", "free_weights", "group_studios", "juice_bar", "lounge", "machine_weights", "membership_long", "membership_monthly", "membership_short", "mma", "pool", "pt", "sauna", "spa", "spinning", "steam", "telephone", "territory", "updated_at", "wifi", "yoga", "yoga_hot") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["address", "Parkvale, 1060 King's Road"], ["branch", "Parkvale"], ["brand", "California Fitness"], ["cardio", "t"], ["clothes", "f"], ["created_at", "2014-10-29 10:14:52.824966"], ["crossfit", "f"], ["district", "Quarry Bay"], ["free_weights", "t"], ["group_studios", "t"], ["juice_bar", "f"], ["lounge", "f"], ["machine_weights", "t"], ["membership_long", 901], ["membership_monthly", 1599], ["membership_short", 1099], ["mma", "t"], ["pool", "f"], ["pt", "t"], ["sauna", "t"], ["spa", "f"], ["spinning", "t"], ["steam", "t"], ["telephone", "2880 9660"], ["territory", "Hong Kong"], ["updated_at", "2014-10-29 10:14:52.824966"], ["wifi", "t"], ["yoga", "t"], ["yoga_hot", "f"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "gyms" ("address", "branch", "brand", "cardio", "clothes", "created_at", "crossfit", "district", "free_weights", "group_studios", "juice_bar", "lounge", "machine_weights", "membership_long", "membership_monthly", "membership_short", "mma", "pool", "pt", "sauna", "spa", "spinning", "steam", "telephone", "territory", "updated_at", "wifi", "yoga", "yoga_hot") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["address", "9/F, The ONE, 100 Nathan Road"], ["branch", "The ONE"], ["brand", "California Fitness"], ["cardio", "t"], ["clothes", "f"], ["created_at", "2014-10-29 10:14:52.831442"], ["crossfit", "f"], ["district", "Tsim Sha Tsui"], ["free_weights", "t"], ["group_studios", "t"], ["juice_bar", "t"], ["lounge", "f"], ["machine_weights", "t"], ["membership_long", 901], ["membership_monthly", 1599], ["membership_short", 1099], ["mma", "t"], ["pool", "f"], ["pt", "t"], ["sauna", "t"], ["spa", "f"], ["spinning", "t"], ["steam", "t"], ["telephone", "2366 8666"], ["territory", "Kowloon"], ["updated_at", "2014-10-29 10:14:52.831442"], ["wifi", "t"], ["yoga", "t"], ["yoga_hot", "f"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "gyms" ("address", "branch", "brand", "cardio", "clothes", "created_at", "crossfit", "district", "free_weights", "group_studios", "juice_bar", "lounge", "machine_weights", "membership_long", "membership_monthly", "membership_short", "mma", "pool", "pt", "sauna", "spa", "spinning", "steam", "telephone", "territory", "updated_at", "wifi", "yoga", "yoga_hot") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["address", "5/F, Grand Plaza, 639 Nathan Road"], ["branch", "Grand Plaza"], ["brand", "California Fitness"], ["cardio", "t"], ["clothes", "f"], ["created_at", "2014-10-29 10:14:52.837782"], ["crossfit", "f"], ["district", "Mongkok"], ["free_weights", "t"], ["group_studios", "t"], ["juice_bar", "t"], ["lounge", "f"], ["machine_weights", "t"], ["membership_long", 901], ["membership_monthly", 1599], ["membership_short", 1099], ["mma", "t"], ["pool", "f"], ["pt", "t"], ["sauna", "t"], ["spa", "f"], ["spinning", "t"], ["steam", "t"], ["telephone", "2522 1000"], ["territory", "Kowloon"], ["updated_at", "2014-10-29 10:14:52.837782"], ["wifi", "t"], ["yoga", "t"], ["yoga_hot", "f"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "gyms" ("address", "branch", "brand", "cardio", "clothes", "created_at", "crossfit", "district", "free_weights", "group_studios", "juice_bar", "lounge", "machine_weights", "membership_long", "membership_monthly", "membership_short", "mma", "pool", "pt", "sauna", "spa", "spinning", "steam", "telephone", "territory", "updated_at", "wifi", "yoga", "yoga_hot") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["address", "18/F, MegaBox, 38 Wang Chiu Road"], ["branch", "Megabox"], ["brand", "California Fitness"], ["cardio", "t"], ["clothes", "f"], ["created_at", "2014-10-29 10:14:52.843495"], ["crossfit", "f"], ["district", "Kowloon Bay"], ["free_weights", "t"], ["group_studios", "t"], ["juice_bar", "t"], ["lounge", "f"], ["machine_weights", "t"], ["membership_long", 901], ["membership_monthly", 1599], ["membership_short", 1099], ["mma", "t"], ["pool", "t"], ["pt", "t"], ["sauna", "t"], ["spa", "f"], ["spinning", "t"], ["steam", "t"], ["telephone", "2250 5022"], ["territory", "Kowloon"], ["updated_at", "2014-10-29 10:14:52.843495"], ["wifi", "t"], ["yoga", "t"], ["yoga_hot", "f"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "gyms" ("address", "branch", "brand", "cardio", "clothes", "created_at", "crossfit", "district", "free_weights", "group_studios", "juice_bar", "lounge", "machine_weights", "membership_long", "membership_monthly", "membership_short", "mma", "pool", "pt", "sauna", "spa", "spinning", "steam", "telephone", "territory", "updated_at", "wifi", "yoga", "yoga_hot") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["address", "G/F, Treasure World (Site 11), Whampoa Garden"], ["branch", "Whampoa"], ["brand", "California Fitness"], ["cardio", "t"], ["clothes", "f"], ["created_at", "2014-10-29 10:14:52.850117"], ["crossfit", "f"], ["district", "Hunghom"], ["free_weights", "t"], ["group_studios", "t"], ["juice_bar", "t"], ["lounge", "f"], ["machine_weights", "t"], ["membership_long", 901], ["membership_monthly", 1599], ["membership_short", 1099], ["mma", "t"], ["pool", "f"], ["pt", "t"], ["sauna", "t"], ["spa", "f"], ["spinning", "t"], ["steam", "t"], ["telephone", "2622 2228"], ["territory", "Kowloon"], ["updated_at", "2014-10-29 10:14:52.850117"], ["wifi", "t"], ["yoga", "t"], ["yoga_hot", "f"]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "gyms" ("address", "branch", "brand", "cardio", "clothes", "created_at", "crossfit", "district", "free_weights", "group_studios", "juice_bar", "lounge", "machine_weights", "membership_long", "membership_monthly", "membership_short", "mma", "pool", "pt", "sauna", "spa", "spinning", "steam", "telephone", "territory", "updated_at", "wifi", "yoga", "yoga_hot") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["address", "Tuen Mun Centre, 7-35 Yan Ching Street"], ["branch", "Tuen Mun Centre"], ["brand", "California Fitness"], ["cardio", "f"], ["clothes", "f"], ["created_at", "2014-10-29 10:14:52.857609"], ["crossfit", "f"], ["district", "Tuen Mun"], ["free_weights", "f"], ["group_studios", "f"], ["juice_bar", "f"], ["lounge", "f"], ["machine_weights", "f"], ["membership_long", 901], ["membership_monthly", 1599], ["membership_short", 1099], ["mma", "f"], ["pool", "f"], ["pt", "f"], ["sauna", "f"], ["spa", "f"], ["spinning", "f"], ["steam", "f"], ["telephone", "2618 3008"], ["territory", "Kowloon"], ["updated_at", "2014-10-29 10:14:52.857609"], ["wifi", "f"], ["yoga", "f"], ["yoga_hot", "f"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "gyms" ("address", "branch", "brand", "cardio", "clothes", "created_at", "crossfit", "district", "free_weights", "group_studios", "juice_bar", "lounge", "machine_weights", "membership_long", "membership_monthly", "membership_short", "mma", "pool", "pt", "sauna", "spa", "spinning", "steam", "telephone", "territory", "updated_at", "wifi", "yoga", "yoga_hot") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["address", "2/F, Concord Square, 88 Chuen Lung Street"], ["branch", "Concord Square"], ["brand", "Physical Fitness"], ["cardio", "t"], ["clothes", "f"], ["created_at", "2014-10-29 10:14:52.866846"], ["crossfit", "f"], ["district", "Tsuen Wan"], ["free_weights", "t"], ["group_studios", "t"], ["juice_bar", "f"], ["lounge", "t"], ["machine_weights", "t"], ["membership_long", 666], ["membership_monthly", 1111], ["membership_short", 888], ["mma", "f"], ["pool", "f"], ["pt", "t"], ["sauna", "t"], ["spa", "f"], ["spinning", "t"], ["steam", "t"], ["telephone", "3710 7777"], ["territory", "New Territories"], ["updated_at", "2014-10-29 10:14:52.866846"], ["wifi", "t"], ["yoga", "t"], ["yoga_hot", "f"]]
+  [1m[35m (1.0ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "schedules" ("created_at", "fri_close", "fri_open", "gym_id", "mon_close", "mon_open", "sat_close", "sat_open", "sun_close", "sun_open", "thu_close", "thu_open", "tue_close", "tue_open", "updated_at", "wed_close", "wed_open") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["created_at", "2014-10-29 10:14:52.893986"], ["fri_close", "12mid."], ["fri_open", "6am"], ["gym_id", 1], ["mon_close", "12mid."], ["mon_open", "6am"], ["sat_close", "12mid."], ["sat_open", "6am"], ["sun_close", "10pm"], ["sun_open", "8am"], ["thu_close", "12mid."], ["thu_open", "6am"], ["tue_close", "12mid."], ["tue_open", "6am"], ["updated_at", "2014-10-29 10:14:52.893986"], ["wed_close", "12mid."], ["wed_open", "6am"]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "schedules" ("created_at", "fri_close", "fri_open", "gym_id", "mon_close", "mon_open", "sat_close", "sat_open", "sun_close", "sun_open", "thu_close", "thu_open", "tue_close", "tue_open", "updated_at", "wed_close", "wed_open") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", "2014-10-29 10:14:52.899696"], ["fri_close", "12mid."], ["fri_open", "6am"], ["gym_id", 2], ["mon_close", "12mid."], ["mon_open", "6am"], ["sat_close", "12mid."], ["sat_open", "6am"], ["sun_close", "10pm"], ["sun_open", "8am"], ["thu_close", "12mid."], ["thu_open", "6am"], ["tue_close", "12mid."], ["tue_open", "6am"], ["updated_at", "2014-10-29 10:14:52.899696"], ["wed_close", "12mid."], ["wed_open", "6am"]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schedules" ("created_at", "fri_close", "fri_open", "gym_id", "mon_close", "mon_open", "sat_close", "sat_open", "sun_close", "sun_open", "thu_close", "thu_open", "tue_close", "tue_open", "updated_at", "wed_close", "wed_open") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["created_at", "2014-10-29 10:14:52.905620"], ["fri_close", "12mid."], ["fri_open", "6am"], ["gym_id", 3], ["mon_close", "12mid."], ["mon_open", "6am"], ["sat_close", "12mid."], ["sat_open", "6am"], ["sun_close", "10pm"], ["sun_open", "8am"], ["thu_close", "12mid."], ["thu_open", "6am"], ["tue_close", "12mid."], ["tue_open", "6am"], ["updated_at", "2014-10-29 10:14:52.905620"], ["wed_close", "12mid."], ["wed_open", "6am"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schedules" ("created_at", "fri_close", "fri_open", "gym_id", "mon_close", "mon_open", "sat_close", "sat_open", "sun_close", "sun_open", "thu_close", "thu_open", "tue_close", "tue_open", "updated_at", "wed_close", "wed_open") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", "2014-10-29 10:14:52.911318"], ["fri_close", "12mid."], ["fri_open", "6am"], ["gym_id", 4], ["mon_close", "12mid."], ["mon_open", "6am"], ["sat_close", "12mid."], ["sat_open", "6am"], ["sun_close", "10pm"], ["sun_open", "8am"], ["thu_close", "12mid."], ["thu_open", "6am"], ["tue_close", "12mid."], ["tue_open", "6am"], ["updated_at", "2014-10-29 10:14:52.911318"], ["wed_close", "12mid."], ["wed_open", "6am"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schedules" ("created_at", "fri_close", "fri_open", "gym_id", "mon_close", "mon_open", "sat_close", "sat_open", "sun_close", "sun_open", "thu_close", "thu_open", "tue_close", "tue_open", "updated_at", "wed_close", "wed_open") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["created_at", "2014-10-29 10:14:52.916238"], ["fri_close", ""], ["fri_open", ""], ["gym_id", 5], ["mon_close", ""], ["mon_open", ""], ["sat_close", ""], ["sat_open", ""], ["sun_close", ""], ["sun_open", ""], ["thu_close", ""], ["thu_open", ""], ["tue_close", ""], ["tue_open", ""], ["updated_at", "2014-10-29 10:14:52.916238"], ["wed_close", ""], ["wed_open", ""]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schedules" ("created_at", "fri_close", "fri_open", "gym_id", "mon_close", "mon_open", "sat_close", "sat_open", "sun_close", "sun_open", "thu_close", "thu_open", "tue_close", "tue_open", "updated_at", "wed_close", "wed_open") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", "2014-10-29 10:14:52.923386"], ["fri_close", "12mid."], ["fri_open", "6am"], ["gym_id", 6], ["mon_close", "12mid."], ["mon_open", "6am"], ["sat_close", "12mid."], ["sat_open", "6am"], ["sun_close", "10pm"], ["sun_open", "8am"], ["thu_close", "12mid."], ["thu_open", "6am"], ["tue_close", "12mid."], ["tue_open", "6am"], ["updated_at", "2014-10-29 10:14:52.923386"], ["wed_close", "12mid."], ["wed_open", "6am"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schedules" ("created_at", "fri_close", "fri_open", "gym_id", "mon_close", "mon_open", "sat_close", "sat_open", "sun_close", "sun_open", "thu_close", "thu_open", "tue_close", "tue_open", "updated_at", "wed_close", "wed_open") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["created_at", "2014-10-29 10:14:52.928979"], ["fri_close", "10pm"], ["fri_open", "6:45am"], ["gym_id", 7], ["mon_close", "10pm"], ["mon_open", "6:45am"], ["sat_close", "7pm"], ["sat_open", "8am"], ["sun_close", "6pm"], ["sun_open", "10am"], ["thu_close", "10pm"], ["thu_open", "6:45am"], ["tue_close", "10pm"], ["tue_open", "6:45am"], ["updated_at", "2014-10-29 10:14:52.928979"], ["wed_close", "10pm"], ["wed_open", "6:45am"]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schedules" ("created_at", "fri_close", "fri_open", "gym_id", "mon_close", "mon_open", "sat_close", "sat_open", "sun_close", "sun_open", "thu_close", "thu_open", "tue_close", "tue_open", "updated_at", "wed_close", "wed_open") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", "2014-10-29 10:14:52.933555"], ["fri_close", "11pm"], ["fri_open", "6:30am"], ["gym_id", 8], ["mon_close", "11pm"], ["mon_open", "6:30am"], ["sat_close", "10pm"], ["sat_open", "7am"], ["sun_close", "10pm"], ["sun_open", "8am"], ["thu_close", "11pm"], ["thu_open", "6:30am"], ["tue_close", "11pm"], ["tue_open", "6:30am"], ["updated_at", "2014-10-29 10:14:52.933555"], ["wed_close", "11pm"], ["wed_open", "6:30am"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schedules" ("created_at", "fri_close", "fri_open", "gym_id", "mon_close", "mon_open", "sat_close", "sat_open", "sun_close", "sun_open", "thu_close", "thu_open", "tue_close", "tue_open", "updated_at", "wed_close", "wed_open") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["created_at", "2014-10-29 10:14:52.938510"], ["fri_close", "11pm"], ["fri_open", "6:30am"], ["gym_id", 9], ["mon_close", "11pm"], ["mon_open", "6:30am"], ["sat_close", "10pm"], ["sat_open", "7am"], ["sun_close", "10pm"], ["sun_open", "8am"], ["thu_close", "11pm"], ["thu_open", "6:30am"], ["tue_close", "11pm"], ["tue_open", "6:30am"], ["updated_at", "2014-10-29 10:14:52.938510"], ["wed_close", "11pm"], ["wed_open", "6:30am"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schedules" ("created_at", "fri_close", "fri_open", "gym_id", "mon_close", "mon_open", "sat_close", "sat_open", "sun_close", "sun_open", "thu_close", "thu_open", "tue_close", "tue_open", "updated_at", "wed_close", "wed_open") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", "2014-10-29 10:14:52.944945"], ["fri_close", "11pm"], ["fri_open", "6:30am"], ["gym_id", 10], ["mon_close", "11pm"], ["mon_open", "6:30am"], ["sat_close", "10pm"], ["sat_open", "7am"], ["sun_close", "10pm"], ["sun_open", "8am"], ["thu_close", "11pm"], ["thu_open", "6:30am"], ["tue_close", "11pm"], ["tue_open", "6:30am"], ["updated_at", "2014-10-29 10:14:52.944945"], ["wed_close", "11pm"], ["wed_open", "6:30am"]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schedules" ("created_at", "fri_close", "fri_open", "gym_id", "mon_close", "mon_open", "sat_close", "sat_open", "sun_close", "sun_open", "thu_close", "thu_open", "tue_close", "tue_open", "updated_at", "wed_close", "wed_open") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["created_at", "2014-10-29 10:14:52.951403"], ["fri_close", "11pm"], ["fri_open", "6:30am"], ["gym_id", 11], ["mon_close", "11pm"], ["mon_open", "6:30am"], ["sat_close", "10pm"], ["sat_open", "7am"], ["sun_close", "10pm"], ["sun_open", "8am"], ["thu_close", "11pm"], ["thu_open", "6:30am"], ["tue_close", "11pm"], ["tue_open", "6:30am"], ["updated_at", "2014-10-29 10:14:52.951403"], ["wed_close", "11pm"], ["wed_open", "6:30am"]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schedules" ("created_at", "fri_close", "fri_open", "gym_id", "mon_close", "mon_open", "sat_close", "sat_open", "sun_close", "sun_open", "thu_close", "thu_open", "tue_close", "tue_open", "updated_at", "wed_close", "wed_open") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", "2014-10-29 10:14:52.959184"], ["fri_close", "11pm"], ["fri_open", "6:30am"], ["gym_id", 12], ["mon_close", "11pm"], ["mon_open", "6:30am"], ["sat_close", "10pm"], ["sat_open", "7am"], ["sun_close", "10pm"], ["sun_open", "8am"], ["thu_close", "11pm"], ["thu_open", "6:30am"], ["tue_close", "11pm"], ["tue_open", "6:30am"], ["updated_at", "2014-10-29 10:14:52.959184"], ["wed_close", "11pm"], ["wed_open", "6:30am"]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schedules" ("created_at", "fri_close", "fri_open", "gym_id", "mon_close", "mon_open", "sat_close", "sat_open", "sun_close", "sun_open", "thu_close", "thu_open", "tue_close", "tue_open", "updated_at", "wed_close", "wed_open") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["created_at", "2014-10-29 10:14:52.965502"], ["fri_close", "10pm"], ["fri_open", "6am"], ["gym_id", 13], ["mon_close", "10pm"], ["mon_open", "6am"], ["sat_close", "10pm"], ["sat_open", "6am"], ["sun_close", "10pm"], ["sun_open", "6am"], ["thu_close", "10pm"], ["thu_open", "6am"], ["tue_close", "10pm"], ["tue_open", "6am"], ["updated_at", "2014-10-29 10:14:52.965502"], ["wed_close", "10pm"], ["wed_open", "6am"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schedules" ("created_at", "fri_close", "fri_open", "gym_id", "mon_close", "mon_open", "sat_close", "sat_open", "sun_close", "sun_open", "thu_close", "thu_open", "tue_close", "tue_open", "updated_at", "wed_close", "wed_open") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", "2014-10-29 10:14:52.971368"], ["fri_close", "12mid."], ["fri_open", "6am"], ["gym_id", 14], ["mon_close", "12mid."], ["mon_open", "6am"], ["sat_close", "12mid."], ["sat_open", "6am"], ["sun_close", "10pm"], ["sun_open", "8am"], ["thu_close", "12mid."], ["thu_open", "6am"], ["tue_close", "12mid."], ["tue_open", "6am"], ["updated_at", "2014-10-29 10:14:52.971368"], ["wed_close", "12mid."], ["wed_open", "6am"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schedules" ("created_at", "fri_close", "fri_open", "gym_id", "mon_close", "mon_open", "sat_close", "sat_open", "sun_close", "sun_open", "thu_close", "thu_open", "tue_close", "tue_open", "updated_at", "wed_close", "wed_open") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["created_at", "2014-10-29 10:14:52.976244"], ["fri_close", "12mid."], ["fri_open", "6am"], ["gym_id", 15], ["mon_close", "12mid."], ["mon_open", "6am"], ["sat_close", "12mid."], ["sat_open", "6am"], ["sun_close", "10pm"], ["sun_open", "8am"], ["thu_close", "12mid."], ["thu_open", "6am"], ["tue_close", "12mid."], ["tue_open", "6am"], ["updated_at", "2014-10-29 10:14:52.976244"], ["wed_close", "12mid."], ["wed_open", "6am"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "schedules" ("created_at", "fri_close", "fri_open", "gym_id", "mon_close", "mon_open", "sat_close", "sat_open", "sun_close", "sun_open", "thu_close", "thu_open", "tue_close", "tue_open", "updated_at", "wed_close", "wed_open") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", "2014-10-29 10:14:52.982560"], ["fri_close", "12mid."], ["fri_open", "6am"], ["gym_id", 16], ["mon_close", "12mid."], ["mon_open", "6am"], ["sat_close", "12mid."], ["sat_open", "6am"], ["sun_close", "10pm"], ["sun_open", "8am"], ["thu_close", "12mid."], ["thu_open", "6am"], ["tue_close", "12mid."], ["tue_open", "6am"], ["updated_at", "2014-10-29 10:14:52.982560"], ["wed_close", "12mid."], ["wed_open", "6am"]]
+  [1m[35m (1.0ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schedules" ("created_at", "fri_close", "fri_open", "gym_id", "mon_close", "mon_open", "sat_close", "sat_open", "sun_close", "sun_open", "thu_close", "thu_open", "tue_close", "tue_open", "updated_at", "wed_close", "wed_open") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["created_at", "2014-10-29 10:14:52.990135"], ["fri_close", "12mid."], ["fri_open", "6am"], ["gym_id", 17], ["mon_close", "12mid."], ["mon_open", "6am"], ["sat_close", "12mid."], ["sat_open", "6am"], ["sun_close", "10pm"], ["sun_open", "8am"], ["thu_close", "12mid."], ["thu_open", "6am"], ["tue_close", "12mid."], ["tue_open", "6am"], ["updated_at", "2014-10-29 10:14:52.990135"], ["wed_close", "12mid."], ["wed_open", "6am"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schedules" ("created_at", "fri_close", "fri_open", "gym_id", "mon_close", "mon_open", "sat_close", "sat_open", "sun_close", "sun_open", "thu_close", "thu_open", "tue_close", "tue_open", "updated_at", "wed_close", "wed_open") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", "2014-10-29 10:14:52.995718"], ["fri_close", "12mid."], ["fri_open", "6am"], ["gym_id", 18], ["mon_close", "12mid."], ["mon_open", "6am"], ["sat_close", "12mid."], ["sat_open", "6am"], ["sun_close", "12mid."], ["sun_open", "8am"], ["thu_close", "12mid."], ["thu_open", "6am"], ["tue_close", "12mid."], ["tue_open", "6am"], ["updated_at", "2014-10-29 10:14:52.995718"], ["wed_close", "12mid."], ["wed_open", "6am"]]
+  [1m[35m (1.0ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schedules" ("created_at", "fri_close", "fri_open", "gym_id", "mon_close", "mon_open", "sat_close", "sat_open", "sun_close", "sun_open", "thu_close", "thu_open", "tue_close", "tue_open", "updated_at", "wed_close", "wed_open") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["created_at", "2014-10-29 10:14:53.001706"], ["fri_close", "12mid."], ["fri_open", "6am"], ["gym_id", 19], ["mon_close", "12mid."], ["mon_open", "6am"], ["sat_close", "12mid."], ["sat_open", "6am"], ["sun_close", "12mid."], ["sun_open", "8am"], ["thu_close", "12mid."], ["thu_open", "6am"], ["tue_close", "12mid."], ["tue_open", "6am"], ["updated_at", "2014-10-29 10:14:53.001706"], ["wed_close", "12mid."], ["wed_open", "6am"]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schedules" ("created_at", "fri_close", "fri_open", "gym_id", "mon_close", "mon_open", "sat_close", "sat_open", "sun_close", "sun_open", "thu_close", "thu_open", "tue_close", "tue_open", "updated_at", "wed_close", "wed_open") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", "2014-10-29 10:14:53.009587"], ["fri_close", "12mid."], ["fri_open", "6am"], ["gym_id", 20], ["mon_close", "12mid."], ["mon_open", "6am"], ["sat_close", "12mid."], ["sat_open", "6am"], ["sun_close", "10pm"], ["sun_open", "8am"], ["thu_close", "12mid."], ["thu_open", "6am"], ["tue_close", "12mid."], ["tue_open", "6am"], ["updated_at", "2014-10-29 10:14:53.009587"], ["wed_close", "12mid."], ["wed_open", "6am"]]
+  [1m[35m (1.0ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schedules" ("created_at", "fri_close", "fri_open", "gym_id", "mon_close", "mon_open", "sat_close", "sat_open", "sun_close", "sun_open", "thu_close", "thu_open", "tue_close", "tue_open", "updated_at", "wed_close", "wed_open") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["created_at", "2014-10-29 10:14:53.016234"], ["fri_close", "12mid."], ["fri_open", "6am"], ["gym_id", 21], ["mon_close", "12mid."], ["mon_open", "6am"], ["sat_close", "12mid."], ["sat_open", "6am"], ["sun_close", "10pm"], ["sun_open", "8am"], ["thu_close", "12mid."], ["thu_open", "6am"], ["tue_close", "12mid."], ["tue_open", "6am"], ["updated_at", "2014-10-29 10:14:53.016234"], ["wed_close", "12mid."], ["wed_open", "6am"]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "schedules" ("created_at", "fri_close", "fri_open", "gym_id", "mon_close", "mon_open", "sat_close", "sat_open", "sun_close", "sun_open", "thu_close", "thu_open", "tue_close", "tue_open", "updated_at", "wed_close", "wed_open") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", "2014-10-29 10:14:53.025082"], ["fri_close", ""], ["fri_open", ""], ["gym_id", 22], ["mon_close", ""], ["mon_open", ""], ["sat_close", ""], ["sat_open", ""], ["sun_close", ""], ["sun_open", ""], ["thu_close", ""], ["thu_open", ""], ["tue_close", ""], ["tue_open", ""], ["updated_at", "2014-10-29 10:14:53.025082"], ["wed_close", ""], ["wed_open", ""]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schedules" ("created_at", "fri_close", "fri_open", "gym_id", "mon_close", "mon_open", "sat_close", "sat_open", "sun_close", "sun_open", "thu_close", "thu_open", "tue_close", "tue_open", "updated_at", "wed_close", "wed_open") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["created_at", "2014-10-29 10:14:53.031720"], ["fri_close", "11pm"], ["fri_open", "7am"], ["gym_id", 23], ["mon_close", "11pm"], ["mon_open", "7am"], ["sat_close", "10pm"], ["sat_open", "7am"], ["sun_close", "10pm"], ["sun_open", "8am"], ["thu_close", "11pm"], ["thu_open", "7am"], ["tue_close", "11pm"], ["tue_open", "7am"], ["updated_at", "2014-10-29 10:14:53.031720"], ["wed_close", "11pm"], ["wed_open", "7am"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[36mSchedule Load (0.1ms)[0m  [1mSELECT  "schedules".* FROM "schedules"   ORDER BY "schedules"."id" DESC LIMIT 1[0m
+  [1m[35mGym Load (0.2ms)[0m  SELECT  "gyms".* FROM "gyms"   ORDER BY "gyms"."id" ASC LIMIT 1
+  [1m[36mSchedule Load (0.3ms)[0m  [1mSELECT  "schedules".* FROM "schedules"   ORDER BY "schedules"."id" ASC LIMIT 1[0m
+  [1m[35mSchedule Load (0.3ms)[0m  SELECT  "schedules".* FROM "schedules"   ORDER BY "schedules"."id" ASC LIMIT 1
+  [1m[36mSchedule Load (0.2ms)[0m  [1mSELECT  "schedules".* FROM "schedules"   ORDER BY "schedules"."id" ASC LIMIT 1[0m
+  [1m[35mSchedule Load (0.2ms)[0m  SELECT  "schedules".* FROM "schedules"   ORDER BY "schedules"."id" ASC LIMIT 1
+  [1m[36mSchedule Load (0.2ms)[0m  [1mSELECT  "schedules".* FROM "schedules"   ORDER BY "schedules"."id" ASC LIMIT 1[0m
+  [1m[35mGym Load (0.3ms)[0m  SELECT  "gyms".* FROM "gyms"   ORDER BY "gyms"."id" ASC LIMIT 1
+  [1m[36mGym Load (0.3ms)[0m  [1mSELECT  "gyms".* FROM "gyms"   ORDER BY "gyms"."id" ASC LIMIT 1[0m
+  [1m[35mSchedule Load (0.2ms)[0m  SELECT  "schedules".* FROM "schedules"  WHERE "schedules"."gym_id" = ? LIMIT 1  [["gym_id", 1]]
+  [1m[36mSchedule Load (0.2ms)[0m  [1mSELECT  "schedules".* FROM "schedules"   ORDER BY "schedules"."id" ASC LIMIT 1[0m
+  [1m[35mGym Load (0.3ms)[0m  SELECT  "gyms".* FROM "gyms"   ORDER BY "gyms"."id" DESC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "gyms" ("brand", "created_at", "updated_at") VALUES (?, ?, ?)  [["brand", "Harry Potter"], ["created_at", "2014-10-29 10:22:52.165020"], ["updated_at", "2014-10-29 10:22:52.165020"]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "schedules" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", "2014-10-29 10:23:18.520794"], ["updated_at", "2014-10-29 10:23:18.520794"]]
+  [1m[35m (1.6ms)[0m  commit transaction
+  [1m[36mSchedule Load (0.2ms)[0m  [1mSELECT  "schedules".* FROM "schedules"   ORDER BY "schedules"."id" DESC LIMIT 1[0m
+  [1m[35mSchedule Load (0.3ms)[0m  SELECT  "schedules".* FROM "schedules"   ORDER BY "schedules"."id" ASC LIMIT 1
+  [1m[36mGym Load (0.2ms)[0m  [1mSELECT  "gyms".* FROM "gyms"  WHERE "gyms"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mSchedule Load (0.3ms)[0m  SELECT  "schedules".* FROM "schedules"   ORDER BY "schedules"."id" ASC LIMIT 1
+  [1m[36mGym Load (0.1ms)[0m  [1mSELECT  "gyms".* FROM "gyms"  WHERE "gyms"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mGym Load (0.3ms)[0m  SELECT  "gyms".* FROM "gyms"   ORDER BY "gyms"."id" ASC LIMIT 1
+  [1m[36mSchedule Load (0.2ms)[0m  [1mSELECT  "schedules".* FROM "schedules"  WHERE "schedules"."gym_id" = ? LIMIT 1[0m  [["gym_id", 1]]
+  [1m[36mGym Load (0.3ms)[0m  [1mSELECT  "gyms".* FROM "gyms"  WHERE "gyms"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mGym Load (0.2ms)[0m  SELECT  "gyms".* FROM "gyms"  WHERE "gyms"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mSchedule Load (0.1ms)[0m  [1mSELECT  "schedules".* FROM "schedules"  WHERE "schedules"."gym_id" = ? LIMIT 1[0m  [["gym_id", 3]]
+
+
+Started GET "/gyms" for 127.0.0.1 at 2014-10-29 18:31:52 +0800
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by GymsController#index as HTML
+  [1m[35mGym Load (0.4ms)[0m  SELECT "gyms".* FROM "gyms"
+  Rendered gyms/index.html.erb within layouts/application (43.9ms)
+Completed 200 OK in 780ms (Views: 774.5ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/gyms" for 127.0.0.1 at 2014-10-29 18:31:53 +0800
+Processing by GymsController#index as HTML
+  [1m[36mGym Load (0.3ms)[0m  [1mSELECT "gyms".* FROM "gyms"[0m
+  Rendered gyms/index.html.erb within layouts/application (25.3ms)
+Completed 200 OK in 349ms (Views: 347.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/schedules.css?body=1" for 127.0.0.1 at 2014-10-29 18:31:53 +0800
+
+
+Started GET "/assets/bootstrap_and_overrides.css?body=1" for 127.0.0.1 at 2014-10-29 18:31:53 +0800
+
+
+Started GET "/assets/twitter-bootstrap-static/bootstrap.css?body=1" for 127.0.0.1 at 2014-10-29 18:31:53 +0800
+
+
+Started GET "/assets/twitter-bootstrap-static/fontawesome.css?body=1" for 127.0.0.1 at 2014-10-29 18:31:53 +0800
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-10-29 18:31:53 +0800
+
+
+Started GET "/assets/gyms.css?body=1" for 127.0.0.1 at 2014-10-29 18:31:53 +0800
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-29 18:31:53 +0800
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2014-10-29 18:31:53 +0800
+
+
+Started GET "/assets/schedules.js?body=1" for 127.0.0.1 at 2014-10-29 18:31:53 +0800
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-29 18:31:53 +0800
+
+
+Started GET "/assets/dataTables/bootstrap/3/jquery.dataTables.bootstrap.css?body=1" for 127.0.0.1 at 2014-10-29 18:31:53 +0800
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-29 18:31:53 +0800
+
+
+Started GET "/assets/twitter/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-10-29 18:31:53 +0800
+
+
+Started GET "/assets/twitter/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-10-29 18:31:53 +0800
+
+
+Started GET "/assets/twitter/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2014-10-29 18:31:53 +0800
+
+
+Started GET "/assets/twitter/bootstrap/alert.js?body=1" for 127.0.0.1 at 2014-10-29 18:31:53 +0800
+
+
+Started GET "/assets/twitter/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-10-29 18:31:53 +0800
+
+
+Started GET "/assets/twitter/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-10-29 18:31:53 +0800
+
+
+Started GET "/assets/twitter/bootstrap/button.js?body=1" for 127.0.0.1 at 2014-10-29 18:31:53 +0800
+
+
+Started GET "/assets/twitter/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-10-29 18:31:53 +0800
+
+
+Started GET "/assets/twitter/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-10-29 18:31:53 +0800
+
+
+Started GET "/assets/twitter/bootstrap/popover.js?body=1" for 127.0.0.1 at 2014-10-29 18:31:53 +0800
+
+
+Started GET "/assets/twitter/bootstrap/affix.js?body=1" for 127.0.0.1 at 2014-10-29 18:31:53 +0800
+
+
+Started GET "/assets/twitter/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2014-10-29 18:31:53 +0800
+
+
+Started GET "/assets/index-data-table.js?body=1" for 127.0.0.1 at 2014-10-29 18:31:53 +0800
+
+
+Started GET "/assets/twitter/bootstrap.js?body=1" for 127.0.0.1 at 2014-10-29 18:31:53 +0800
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-10-29 18:31:54 +0800
+
+
+Started GET "/assets/gyms.js?body=1" for 127.0.0.1 at 2014-10-29 18:31:54 +0800
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2014-10-29 18:31:54 +0800
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-10-29 18:31:54 +0800
+
+
+Started GET "/assets/dataTables/jquery.dataTables.js?body=1" for 127.0.0.1 at 2014-10-29 18:31:54 +0800
+
+
+Started GET "/assets/dataTables/bootstrap/3/jquery.dataTables.bootstrap.js?body=1" for 127.0.0.1 at 2014-10-29 18:31:54 +0800
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-29 18:31:54 +0800
+
+
+Started GET "/schedules" for 127.0.0.1 at 2014-10-29 18:31:59 +0800
+Processing by SchedulesController#index as HTML
+  [1m[35mSchedule Load (0.5ms)[0m  SELECT "schedules".* FROM "schedules"
+  Rendered schedules/index.html.erb within layouts/application (46.7ms)
+Completed 200 OK in 345ms (Views: 341.2ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/assets/twitter-bootstrap-static/fontawesome.css?body=1" for 127.0.0.1 at 2014-10-29 18:31:59 +0800
+
+
+Started GET "/assets/bootstrap_and_overrides.css?body=1" for 127.0.0.1 at 2014-10-29 18:31:59 +0800
+
+
+Started GET "/assets/gyms.css?body=1" for 127.0.0.1 at 2014-10-29 18:31:59 +0800
+
+
+Started GET "/assets/schedules.css?body=1" for 127.0.0.1 at 2014-10-29 18:31:59 +0800
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-10-29 18:31:59 +0800
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2014-10-29 18:31:59 +0800
+
+
+Started GET "/assets/twitter-bootstrap-static/bootstrap.css?body=1" for 127.0.0.1 at 2014-10-29 18:31:59 +0800
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-29 18:31:59 +0800
+
+
+Started GET "/assets/dataTables/bootstrap/3/jquery.dataTables.bootstrap.css?body=1" for 127.0.0.1 at 2014-10-29 18:31:59 +0800
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-29 18:31:59 +0800
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-29 18:31:59 +0800
+
+
+Started GET "/assets/twitter/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-10-29 18:31:59 +0800
+
+
+Started GET "/assets/twitter/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-10-29 18:31:59 +0800
+
+
+Started GET "/assets/twitter/bootstrap/alert.js?body=1" for 127.0.0.1 at 2014-10-29 18:31:59 +0800
+
+
+Started GET "/assets/twitter/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-10-29 18:31:59 +0800
+
+
+Started GET "/assets/twitter/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2014-10-29 18:31:59 +0800
+
+
+Started GET "/assets/twitter/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-10-29 18:31:59 +0800
+
+
+Started GET "/assets/twitter/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-10-29 18:31:59 +0800
+
+
+Started GET "/assets/twitter/bootstrap/button.js?body=1" for 127.0.0.1 at 2014-10-29 18:31:59 +0800
+
+
+Started GET "/assets/twitter/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-10-29 18:31:59 +0800
+
+
+Started GET "/assets/twitter/bootstrap/popover.js?body=1" for 127.0.0.1 at 2014-10-29 18:31:59 +0800
+
+
+Started GET "/assets/twitter/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2014-10-29 18:31:59 +0800
+
+
+Started GET "/assets/twitter/bootstrap/affix.js?body=1" for 127.0.0.1 at 2014-10-29 18:31:59 +0800
+
+
+Started GET "/assets/twitter/bootstrap.js?body=1" for 127.0.0.1 at 2014-10-29 18:31:59 +0800
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-10-29 18:31:59 +0800
+
+
+Started GET "/assets/gyms.js?body=1" for 127.0.0.1 at 2014-10-29 18:31:59 +0800
+
+
+Started GET "/assets/index-data-table.js?body=1" for 127.0.0.1 at 2014-10-29 18:31:59 +0800
+
+
+Started GET "/assets/schedules.js?body=1" for 127.0.0.1 at 2014-10-29 18:31:59 +0800
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2014-10-29 18:31:59 +0800
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-10-29 18:31:59 +0800
+
+
+Started GET "/assets/dataTables/jquery.dataTables.js?body=1" for 127.0.0.1 at 2014-10-29 18:31:59 +0800
+
+
+Started GET "/assets/dataTables/bootstrap/3/jquery.dataTables.bootstrap.js?body=1" for 127.0.0.1 at 2014-10-29 18:31:59 +0800
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-29 18:31:59 +0800
+
+
+Started DELETE "/schedules/24" for 127.0.0.1 at 2014-10-29 18:32:08 +0800
+Processing by SchedulesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"EvWaKa4xCUJYg6bFPlGzOTMVk8gU/jsZiMNe5JMn89w=", "id"=>"24"}
+  [1m[36mSchedule Load (0.2ms)[0m  [1mSELECT  "schedules".* FROM "schedules"  WHERE "schedules"."id" = ? LIMIT 1[0m  [["id", 24]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mDELETE FROM "schedules" WHERE "schedules"."id" = ?[0m  [["id", 24]]
+  [1m[35m (1.2ms)[0m  commit transaction
+Redirected to http://localhost:3000/schedules
+Completed 302 Found in 13ms (ActiveRecord: 1.9ms)
+
+
+Started GET "/schedules" for 127.0.0.1 at 2014-10-29 18:32:08 +0800
+Processing by SchedulesController#index as HTML
+  [1m[36mSchedule Load (0.5ms)[0m  [1mSELECT "schedules".* FROM "schedules"[0m
+  Rendered schedules/index.html.erb within layouts/application (33.4ms)
+Completed 200 OK in 337ms (Views: 335.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/twitter-bootstrap-static/bootstrap.css?body=1" for 127.0.0.1 at 2014-10-29 18:32:08 +0800
+
+
+Started GET "/assets/gyms.css?body=1" for 127.0.0.1 at 2014-10-29 18:32:08 +0800
+
+
+Started GET "/assets/bootstrap_and_overrides.css?body=1" for 127.0.0.1 at 2014-10-29 18:32:08 +0800
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-10-29 18:32:08 +0800
+
+
+Started GET "/assets/twitter-bootstrap-static/fontawesome.css?body=1" for 127.0.0.1 at 2014-10-29 18:32:08 +0800
+
+
+Started GET "/assets/schedules.css?body=1" for 127.0.0.1 at 2014-10-29 18:32:08 +0800
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2014-10-29 18:32:08 +0800
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-29 18:32:08 +0800
+
+
+Started GET "/assets/dataTables/bootstrap/3/jquery.dataTables.bootstrap.css?body=1" for 127.0.0.1 at 2014-10-29 18:32:08 +0800
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-29 18:32:08 +0800
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-29 18:32:08 +0800
+
+
+Started GET "/assets/twitter/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-10-29 18:32:08 +0800
+
+
+Started GET "/assets/twitter/bootstrap/alert.js?body=1" for 127.0.0.1 at 2014-10-29 18:32:08 +0800
+
+
+Started GET "/assets/twitter/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-10-29 18:32:09 +0800
+
+
+Started GET "/assets/twitter/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-10-29 18:32:09 +0800
+
+
+Started GET "/assets/twitter/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2014-10-29 18:32:09 +0800
+
+
+Started GET "/assets/twitter/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-10-29 18:32:09 +0800
+
+
+Started GET "/assets/twitter/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-10-29 18:32:09 +0800
+
+
+Started GET "/assets/twitter/bootstrap/popover.js?body=1" for 127.0.0.1 at 2014-10-29 18:32:09 +0800
+
+
+Started GET "/assets/twitter/bootstrap/button.js?body=1" for 127.0.0.1 at 2014-10-29 18:32:09 +0800
+
+
+Started GET "/assets/twitter/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-10-29 18:32:09 +0800
+
+
+Started GET "/assets/twitter/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2014-10-29 18:32:09 +0800
+
+
+Started GET "/assets/twitter/bootstrap/affix.js?body=1" for 127.0.0.1 at 2014-10-29 18:32:09 +0800
+
+
+Started GET "/assets/twitter/bootstrap.js?body=1" for 127.0.0.1 at 2014-10-29 18:32:09 +0800
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-10-29 18:32:09 +0800
+
+
+Started GET "/assets/gyms.js?body=1" for 127.0.0.1 at 2014-10-29 18:32:09 +0800
+
+
+Started GET "/assets/schedules.js?body=1" for 127.0.0.1 at 2014-10-29 18:32:09 +0800
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-10-29 18:32:09 +0800
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2014-10-29 18:32:09 +0800
+
+
+Started GET "/assets/dataTables/jquery.dataTables.js?body=1" for 127.0.0.1 at 2014-10-29 18:32:09 +0800
+
+
+Started GET "/assets/dataTables/bootstrap/3/jquery.dataTables.bootstrap.js?body=1" for 127.0.0.1 at 2014-10-29 18:32:09 +0800
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-29 18:32:09 +0800
+
+
+Started GET "/gyms" for 127.0.0.1 at 2014-10-29 18:32:17 +0800
+Processing by GymsController#index as HTML
+  [1m[35mGym Load (0.4ms)[0m  SELECT "gyms".* FROM "gyms"
+  Rendered gyms/index.html.erb within layouts/application (22.4ms)
+Completed 200 OK in 308ms (Views: 306.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/twitter-bootstrap-static/fontawesome.css?body=1" for 127.0.0.1 at 2014-10-29 18:32:18 +0800
+
+
+Started GET "/assets/twitter-bootstrap-static/bootstrap.css?body=1" for 127.0.0.1 at 2014-10-29 18:32:18 +0800
+
+
+Started GET "/assets/bootstrap_and_overrides.css?body=1" for 127.0.0.1 at 2014-10-29 18:32:18 +0800
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-10-29 18:32:18 +0800
+
+
+Started GET "/assets/schedules.css?body=1" for 127.0.0.1 at 2014-10-29 18:32:18 +0800
+
+
+Started GET "/assets/gyms.css?body=1" for 127.0.0.1 at 2014-10-29 18:32:18 +0800
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2014-10-29 18:32:18 +0800
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-29 18:32:18 +0800
+
+
+Started GET "/assets/dataTables/bootstrap/3/jquery.dataTables.bootstrap.css?body=1" for 127.0.0.1 at 2014-10-29 18:32:18 +0800
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-29 18:32:18 +0800
+
+
+Started GET "/assets/twitter/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-10-29 18:32:18 +0800
+
+
+Started GET "/assets/twitter/bootstrap/alert.js?body=1" for 127.0.0.1 at 2014-10-29 18:32:18 +0800
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-29 18:32:18 +0800
+
+
+Started GET "/assets/twitter/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-10-29 18:32:18 +0800
+
+
+Started GET "/assets/twitter/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-10-29 18:32:18 +0800
+
+
+Started GET "/assets/twitter/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2014-10-29 18:32:18 +0800
+
+
+Started GET "/assets/twitter/bootstrap/popover.js?body=1" for 127.0.0.1 at 2014-10-29 18:32:18 +0800
+
+
+Started GET "/assets/twitter/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-10-29 18:32:18 +0800
+
+
+Started GET "/assets/twitter/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-10-29 18:32:18 +0800
+
+
+Started GET "/assets/twitter/bootstrap/button.js?body=1" for 127.0.0.1 at 2014-10-29 18:32:18 +0800
+
+
+Started GET "/assets/twitter/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-10-29 18:32:18 +0800
+
+
+Started GET "/assets/twitter/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2014-10-29 18:32:18 +0800
+
+
+Started GET "/assets/twitter/bootstrap/affix.js?body=1" for 127.0.0.1 at 2014-10-29 18:32:18 +0800
+
+
+Started GET "/assets/twitter/bootstrap.js?body=1" for 127.0.0.1 at 2014-10-29 18:32:18 +0800
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-10-29 18:32:18 +0800
+
+
+Started GET "/assets/gyms.js?body=1" for 127.0.0.1 at 2014-10-29 18:32:18 +0800
+
+
+Started GET "/assets/index-data-table.js?body=1" for 127.0.0.1 at 2014-10-29 18:32:18 +0800
+
+
+Started GET "/assets/schedules.js?body=1" for 127.0.0.1 at 2014-10-29 18:32:18 +0800
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2014-10-29 18:32:18 +0800
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-10-29 18:32:18 +0800
+
+
+Started GET "/assets/dataTables/jquery.dataTables.js?body=1" for 127.0.0.1 at 2014-10-29 18:32:18 +0800
+
+
+Started GET "/assets/dataTables/bootstrap/3/jquery.dataTables.bootstrap.js?body=1" for 127.0.0.1 at 2014-10-29 18:32:18 +0800
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-29 18:32:18 +0800
+
+
+Started DELETE "/gyms/24" for 127.0.0.1 at 2014-10-29 18:32:23 +0800
+Processing by GymsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"EvWaKa4xCUJYg6bFPlGzOTMVk8gU/jsZiMNe5JMn89w=", "id"=>"24"}
+  [1m[36mGym Load (0.2ms)[0m  [1mSELECT  "gyms".* FROM "gyms"  WHERE "gyms"."id" = ? LIMIT 1[0m  [["id", 24]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSchedule Load (0.3ms)[0m  [1mSELECT  "schedules".* FROM "schedules"  WHERE "schedules"."gym_id" = ? LIMIT 1[0m  [["gym_id", 24]]
+  [1m[35mSQL (0.4ms)[0m  DELETE FROM "gyms" WHERE "gyms"."id" = ?  [["id", 24]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/gyms
+Completed 302 Found in 23ms (ActiveRecord: 1.7ms)
+
+
+Started GET "/gyms" for 127.0.0.1 at 2014-10-29 18:32:23 +0800
+Processing by GymsController#index as HTML
+  [1m[35mGym Load (0.7ms)[0m  SELECT "gyms".* FROM "gyms"
+  Rendered gyms/index.html.erb within layouts/application (40.0ms)
+Completed 200 OK in 381ms (Views: 379.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/twitter-bootstrap-static/bootstrap.css?body=1" for 127.0.0.1 at 2014-10-29 18:32:23 +0800
+
+
+Started GET "/assets/twitter-bootstrap-static/fontawesome.css?body=1" for 127.0.0.1 at 2014-10-29 18:32:23 +0800
+
+
+Started GET "/assets/gyms.css?body=1" for 127.0.0.1 at 2014-10-29 18:32:23 +0800
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-10-29 18:32:23 +0800
+
+
+Started GET "/assets/bootstrap_and_overrides.css?body=1" for 127.0.0.1 at 2014-10-29 18:32:23 +0800
+
+
+Started GET "/assets/schedules.css?body=1" for 127.0.0.1 at 2014-10-29 18:32:23 +0800
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2014-10-29 18:32:23 +0800
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-29 18:32:23 +0800
+
+
+Started GET "/assets/dataTables/bootstrap/3/jquery.dataTables.bootstrap.css?body=1" for 127.0.0.1 at 2014-10-29 18:32:23 +0800
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-29 18:32:23 +0800
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-29 18:32:23 +0800
+
+
+Started GET "/assets/twitter/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-10-29 18:32:23 +0800
+
+
+Started GET "/assets/twitter/bootstrap/alert.js?body=1" for 127.0.0.1 at 2014-10-29 18:32:23 +0800
+
+
+Started GET "/assets/twitter/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-10-29 18:32:23 +0800
+
+
+Started GET "/assets/twitter/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2014-10-29 18:32:23 +0800
+
+
+Started GET "/assets/twitter/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-10-29 18:32:23 +0800
+
+
+Started GET "/assets/twitter/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-10-29 18:32:23 +0800
+
+
+Started GET "/assets/twitter/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-10-29 18:32:23 +0800
+
+
+Started GET "/assets/twitter/bootstrap/popover.js?body=1" for 127.0.0.1 at 2014-10-29 18:32:23 +0800
+
+
+Started GET "/assets/twitter/bootstrap/button.js?body=1" for 127.0.0.1 at 2014-10-29 18:32:23 +0800
+
+
+Started GET "/assets/twitter/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-10-29 18:32:23 +0800
+
+
+Started GET "/assets/twitter/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2014-10-29 18:32:23 +0800
+
+
+Started GET "/assets/twitter/bootstrap/affix.js?body=1" for 127.0.0.1 at 2014-10-29 18:32:23 +0800
+
+
+Started GET "/assets/twitter/bootstrap.js?body=1" for 127.0.0.1 at 2014-10-29 18:32:23 +0800
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-10-29 18:32:23 +0800
+
+
+Started GET "/assets/gyms.js?body=1" for 127.0.0.1 at 2014-10-29 18:32:23 +0800
+
+
+Started GET "/assets/index-data-table.js?body=1" for 127.0.0.1 at 2014-10-29 18:32:23 +0800
+
+
+Started GET "/assets/schedules.js?body=1" for 127.0.0.1 at 2014-10-29 18:32:23 +0800
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2014-10-29 18:32:23 +0800
+
+
+Started GET "/assets/dataTables/jquery.dataTables.js?body=1" for 127.0.0.1 at 2014-10-29 18:32:23 +0800
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-10-29 18:32:23 +0800
+
+
+Started GET "/assets/dataTables/bootstrap/3/jquery.dataTables.bootstrap.js?body=1" for 127.0.0.1 at 2014-10-29 18:32:23 +0800
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-29 18:32:23 +0800
+
+
+Started GET "/" for 127.0.0.1 at 2014-10-29 18:34:29 +0800
+Processing by WelcomeController#index as HTML
+  [1m[36mGym Load (0.3ms)[0m  [1mSELECT "gyms".* FROM "gyms"[0m
+  Rendered welcome/index.html.erb within layouts/application (4.8ms)
+Completed 200 OK in 294ms (Views: 292.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/bootstrap_and_overrides.css?body=1" for 127.0.0.1 at 2014-10-29 18:34:30 +0800
+
+
+Started GET "/assets/twitter-bootstrap-static/bootstrap.css?body=1" for 127.0.0.1 at 2014-10-29 18:34:30 +0800
+
+
+Started GET "/assets/gyms.css?body=1" for 127.0.0.1 at 2014-10-29 18:34:30 +0800
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-10-29 18:34:30 +0800
+
+
+Started GET "/assets/schedules.css?body=1" for 127.0.0.1 at 2014-10-29 18:34:30 +0800
+
+
+Started GET "/assets/twitter-bootstrap-static/fontawesome.css?body=1" for 127.0.0.1 at 2014-10-29 18:34:30 +0800
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2014-10-29 18:34:30 +0800
+
+
+Started GET "/assets/dataTables/bootstrap/3/jquery.dataTables.bootstrap.css?body=1" for 127.0.0.1 at 2014-10-29 18:34:30 +0800
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-29 18:34:30 +0800
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-29 18:34:30 +0800
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-29 18:34:30 +0800
+
+
+Started GET "/assets/twitter/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-10-29 18:34:30 +0800
+
+
+Started GET "/assets/twitter/bootstrap/alert.js?body=1" for 127.0.0.1 at 2014-10-29 18:34:30 +0800
+
+
+Started GET "/assets/twitter/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-10-29 18:34:30 +0800
+
+
+Started GET "/assets/twitter/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-10-29 18:34:30 +0800
+
+
+Started GET "/assets/twitter/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-10-29 18:34:30 +0800
+
+
+Started GET "/assets/twitter/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2014-10-29 18:34:30 +0800
+
+
+Started GET "/assets/twitter/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-10-29 18:34:30 +0800
+
+
+Started GET "/assets/twitter/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-10-29 18:34:30 +0800
+
+
+Started GET "/assets/twitter/bootstrap/popover.js?body=1" for 127.0.0.1 at 2014-10-29 18:34:30 +0800
+
+
+Started GET "/assets/twitter/bootstrap/button.js?body=1" for 127.0.0.1 at 2014-10-29 18:34:30 +0800
+
+
+Started GET "/assets/twitter/bootstrap/affix.js?body=1" for 127.0.0.1 at 2014-10-29 18:34:30 +0800
+
+
+Started GET "/assets/twitter/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2014-10-29 18:34:30 +0800
+
+
+Started GET "/assets/twitter/bootstrap.js?body=1" for 127.0.0.1 at 2014-10-29 18:34:30 +0800
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-10-29 18:34:30 +0800
+
+
+Started GET "/assets/gyms.js?body=1" for 127.0.0.1 at 2014-10-29 18:34:30 +0800
+
+
+Started GET "/assets/schedules.js?body=1" for 127.0.0.1 at 2014-10-29 18:34:30 +0800
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2014-10-29 18:34:30 +0800
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-10-29 18:34:30 +0800
+
+
+Started GET "/assets/dataTables/jquery.dataTables.js?body=1" for 127.0.0.1 at 2014-10-29 18:34:30 +0800
+
+
+Started GET "/assets/dataTables/bootstrap/3/jquery.dataTables.bootstrap.js?body=1" for 127.0.0.1 at 2014-10-29 18:34:30 +0800
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-29 18:34:30 +0800
+
+
+Started GET "/assets/group-of-people-doing-aerobics.png" for 127.0.0.1 at 2014-10-29 18:34:30 +0800
+
+
+Started GET "/assets/woman-with-her-personal-trainer.png" for 127.0.0.1 at 2014-10-29 18:34:30 +0800
+
+
+Started GET "/assets/gym-people-in-a-yoga-class.png" for 127.0.0.1 at 2014-10-29 18:34:30 +0800
+
+
+Started GET "/assets/man-lifting-weights.png" for 127.0.0.1 at 2014-10-29 18:34:30 +0800
+
+
+Started GET "/assets/dataTables/sort_both.png" for 127.0.0.1 at 2014-10-29 18:34:30 +0800
+
+
+Started GET "/assets/dataTables/sort_asc.png" for 127.0.0.1 at 2014-10-29 18:34:30 +0800
+
+
+Started GET "/assets/dataTables/sort_desc.png" for 127.0.0.1 at 2014-10-29 18:34:46 +0800

@@ -4,8 +4,8 @@ class CreateSchedules < ActiveRecord::Migration
       t.integer :gym_id
       t.string :mon_open
       t.string :mon_close
-      t.string :tues_open
-      t.string :tues_close
+      t.string :tue_open
+      t.string :tue_close
       t.string :wed_open
       t.string :wed_close
       t.string :thu_open
