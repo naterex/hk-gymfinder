@@ -1,0 +1,77 @@
+<%= form_for(@schedule) do |f| %>
+  <% if @schedule.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@schedule.errors.count, "error") %> prohibited this schedule from being saved:</h2>
+
+      <ul>
+      <% @schedule.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :gym_id %><br>
+    <%= f.number_field :gym_id %>
+  </div>
+  <div class="field">
+    <%= f.label :mon_open %><br>
+    <%= f.text_field :mon_open %>
+  </div>
+  <div class="field">
+    <%= f.label :mon_close %><br>
+    <%= f.text_field :mon_close %>
+  </div>
+  <div class="field">
+    <%= f.label :tues_open %><br>
+    <%= f.text_field :tues_open %>
+  </div>
+  <div class="field">
+    <%= f.label :tues_close %><br>
+    <%= f.text_field :tues_close %>
+  </div>
+  <div class="field">
+    <%= f.label :wed_open %><br>
+    <%= f.text_field :wed_open %>
+  </div>
+  <div class="field">
+    <%= f.label :wed_close %><br>
+    <%= f.text_field :wed_close %>
+  </div>
+  <div class="field">
+    <%= f.label :thu_open %><br>
+    <%= f.text_field :thu_open %>
+  </div>
+  <div class="field">
+    <%= f.label :thu_close %><br>
+    <%= f.text_field :thu_close %>
+  </div>
+  <div class="field">
+    <%= f.label :fri_open %><br>
+    <%= f.text_field :fri_open %>
+  </div>
+  <div class="field">
+    <%= f.label :fri_close %><br>
+    <%= f.text_field :fri_close %>
+  </div>
+  <div class="field">
+    <%= f.label :sat_open %><br>
+    <%= f.text_field :sat_open %>
+  </div>
+  <div class="field">
+    <%= f.label :sat_close %><br>
+    <%= f.text_field :sat_close %>
+  </div>
+  <div class="field">
+    <%= f.label :sun_open %><br>
+    <%= f.text_field :sun_open %>
+  </div>
+  <div class="field">
+    <%= f.label :sun_close %><br>
+    <%= f.text_field :sun_close %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
