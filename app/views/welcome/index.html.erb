@@ -51,7 +51,7 @@
     </tfoot>
     <tbody>
       <% @gyms.each do |gym| %>
-        <tr class="table-row">
+        <tr class="table-row" data-gym-id="<%= gym.id %>">
           <td class="plus-icon"><span class="fa fa-plus"></span></td>
           <% if gym.brand == "Pure Fitness" %>
             <td class="success brand">

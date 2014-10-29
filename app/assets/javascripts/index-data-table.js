@@ -96,6 +96,13 @@ $(document).ready(function() {
 
   // Add event listener for opening and closing details
   $('#index-data-table tbody').on( 'click', 'tr', function () {
+
+    // Mark's code
+    // var gymId = $(this).data('gym-id');
+    // $.get('/gyms/' + gymId + '.json').done(function(data) {
+    //   console.log(data);
+    // });
+
     var tr = $(this).closest('tr');
     var row = table.row( tr );
 
