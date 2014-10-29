@@ -6,34 +6,12 @@ To use Glyphicons sprites instead of Font Awesome, replace with "require twitter
 =require twitter-bootstrap-static/fontawesome
 */
 
-.placeholders{
-  margin-bottom: 45px;
-
+table.dataTable tbody tr.selected {
+  background-color: #428bca;
+  color: white;
 }
 
-.fa-plus {
-  color: green;
-}
-
-.fa-plus:hover {
-  color: lime;
-}
-
-.plus-icon:hover {
-  cursor: pointer;
-  cursor: hand;
-}
-
-tr:hover {
-  cursor: pointer;
-  cursor: hand;
-}
-
-.placeholder img {
-  border-radius: 10%!important;
-  border: silver solid 1px!important;
-}
-
-.index-photos-table{
-  margin-bottom: 45px;
+table.dataTable tbody tr.brand {
+  /*background-color: #428bca;*/
+  color: inherit;
 }

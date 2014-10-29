@@ -54,13 +54,13 @@
         <tr class="table-row">
           <td class="plus-icon"><span class="fa fa-plus"></span></td>
           <% if gym.brand == "Pure Fitness" %>
-            <td class="success">
+            <td class="success brand">
           <% elsif gym.brand == "Fitness First" %>
-            <td class="danger">
+            <td class="danger brand">
           <% elsif gym.brand == "California Fitness" %>
-            <td class="warning">
+            <td class="warning brand">
           <% elsif gym.brand == "Physical Fitness" %>
-            <td class="info">
+            <td class="info brand">
           <% end %>
             <%= gym.brand %>
           </td>

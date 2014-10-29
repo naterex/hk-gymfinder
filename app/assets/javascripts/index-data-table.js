@@ -70,16 +70,11 @@ $(document).ready(function() {
 
   var table = $('#index-data-table').DataTable( {
     // ajax: ...,
-    // autoWidth: false,
-    // pagingType: 'full_numbers',
     // processing: true,
     // serverSide: true,
 
-    // Optional, if you want full pagination controls.
-    // Check dataTables documentation to learn more about available options.
-    // http://datatables.net/reference/option/pagingType
-
     destroy: true, //re-initialize datatable
+    autoWidth: true,
     "sPaginationType": "bootstrap", //boostrap pagination
     "pagingType": "full_numbers", // Optional, if you want full pagination controls.
     "order": [[ 3, "asc"],[2,"asc"]], //district then branchcolum order
@@ -105,25 +100,27 @@ $(document).ready(function() {
     var row = table.row( tr );
 
     if ( row.child.isShown() ) {
-      // This row is already open - close it
+      // This clicked row is already open - close it
       row.child.hide();
       tr.removeClass('shown');
     }
     else {
-      // Open this row
+      // Open this clicked row
       row.child( format(row.data()) ).show();
       tr.addClass('shown');
     }
 
-    console.log("Table row clicked");
+    // console.log("Table row clicked");
 
     // Add event listener for highlighting row
     if ( $(this).hasClass('selected') ) {
       $(this).removeClass('selected');
+      console.log("row highlight OFF");
     }
     else {
       table.$('tr.selected').removeClass('selected');
       $(this).addClass('selected');
+      console.log("row highlight ON");
       // $(this).closest("span").remove();
       // $(this).closest("td.plus-icon").append("<span class='glyphicon glyphicon-minus'></span>");
     }
