@@ -1,0 +1,88 @@
+<%- model_class = Gym -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:brand) %></th>
+      <th><%= model_class.human_attribute_name(:branch) %></th>
+      <th><%= model_class.human_attribute_name(:territory) %></th>
+      <th><%= model_class.human_attribute_name(:district) %></th>
+      <th><%= model_class.human_attribute_name(:address) %></th>
+      <th><%= model_class.human_attribute_name(:telephone) %></th>
+      <th><%= model_class.human_attribute_name(:cardio) %></th>
+      <th><%= model_class.human_attribute_name(:crossfit) %></th>
+      <th><%= model_class.human_attribute_name(:free_weights) %></th>
+      <th><%= model_class.human_attribute_name(:group_studios) %></th>
+      <th><%= model_class.human_attribute_name(:machine_weights) %></th>
+      <th><%= model_class.human_attribute_name(:mma) %></th>
+      <th><%= model_class.human_attribute_name(:lounge) %></th>
+      <th><%= model_class.human_attribute_name(:pt) %></th>
+      <th><%= model_class.human_attribute_name(:spinning) %></th>
+      <th><%= model_class.human_attribute_name(:sauna) %></th>
+      <th><%= model_class.human_attribute_name(:steam) %></th>
+      <th><%= model_class.human_attribute_name(:spa) %></th>
+      <th><%= model_class.human_attribute_name(:pool) %></th>
+      <th><%= model_class.human_attribute_name(:yoga) %></th>
+      <th><%= model_class.human_attribute_name(:yoga_hot) %></th>
+      <th><%= model_class.human_attribute_name(:wifi) %></th>
+      <th><%= model_class.human_attribute_name(:clothes) %></th>
+      <th><%= model_class.human_attribute_name(:juice_bar) %></th>
+      <th><%= model_class.human_attribute_name(:membership_monthly) %></th>
+      <th><%= model_class.human_attribute_name(:membership_short) %></th>
+      <th><%= model_class.human_attribute_name(:membership_long) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @gyms.each do |gym| %>
+      <tr>
+        <td><%= link_to gym.id, gym_path(gym) %></td>
+        <td><%= gym.brand %></td>
+        <td><%= gym.branch %></td>
+        <td><%= gym.territory %></td>
+        <td><%= gym.district %></td>
+        <td><%= gym.address %></td>
+        <td><%= gym.telephone %></td>
+        <td><%= gym.cardio %></td>
+        <td><%= gym.crossfit %></td>
+        <td><%= gym.free_weights %></td>
+        <td><%= gym.group_studios %></td>
+        <td><%= gym.machine_weights %></td>
+        <td><%= gym.mma %></td>
+        <td><%= gym.lounge %></td>
+        <td><%= gym.pt %></td>
+        <td><%= gym.spinning %></td>
+        <td><%= gym.sauna %></td>
+        <td><%= gym.steam %></td>
+        <td><%= gym.spa %></td>
+        <td><%= gym.pool %></td>
+        <td><%= gym.yoga %></td>
+        <td><%= gym.yoga_hot %></td>
+        <td><%= gym.wifi %></td>
+        <td><%= gym.clothes %></td>
+        <td><%= gym.juice_bar %></td>
+        <td><%= gym.membership_monthly %></td>
+        <td><%= gym.membership_short %></td>
+        <td><%= gym.membership_long %></td>
+        <td><%=l gym.created_at %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_gym_path(gym), :class => 'btn btn-default btn-xs' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      gym_path(gym),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-xs btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_gym_path,
+            :class => 'btn btn-primary' %>

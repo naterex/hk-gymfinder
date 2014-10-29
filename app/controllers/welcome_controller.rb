@@ -1,7 +1,7 @@
 class WelcomeController < ApplicationController
 
   def index
-    # @gyms = Gym.all
+    @gyms = Gym.all
   end
 
   def privacy

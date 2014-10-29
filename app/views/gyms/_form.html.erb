@@ -1,0 +1,213 @@
+<%= form_for @gym, :html => { :class => "form-horizontal gym" } do |f| %>
+
+    <% if @gym.errors.any? %>
+    <div id="error_expl" class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= pluralize(@gym.errors.count, "error") %> prohibited this gym from being saved:</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+        <% @gym.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="control-group">
+    <%= f.label :brand, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :brand, :class => 'form-control' %>
+    </div>
+    <%= error_span(@gym[:brand]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :branch, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :branch, :class => 'form-control' %>
+    </div>
+    <%= error_span(@gym[:branch]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :territory, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :territory, :class => 'form-control' %>
+    </div>
+    <%= error_span(@gym[:territory]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :district, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :district, :class => 'form-control' %>
+    </div>
+    <%= error_span(@gym[:district]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :address, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :address, :class => 'form-control' %>
+    </div>
+    <%= error_span(@gym[:address]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :telephone, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :telephone, :class => 'form-control' %>
+    </div>
+    <%= error_span(@gym[:telephone]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :cardio, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :cardio, :class => 'form-control' %>
+    </div>
+    <%= error_span(@gym[:cardio]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :crossfit, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :crossfit, :class => 'form-control' %>
+    </div>
+    <%= error_span(@gym[:crossfit]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :free_weights, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :free_weights, :class => 'form-control' %>
+    </div>
+    <%= error_span(@gym[:free_weights]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :group_studios, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :group_studios, :class => 'form-control' %>
+    </div>
+    <%= error_span(@gym[:group_studios]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :machine_weights, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :machine_weights, :class => 'form-control' %>
+    </div>
+    <%= error_span(@gym[:machine_weights]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :mma, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :mma, :class => 'form-control' %>
+    </div>
+    <%= error_span(@gym[:mma]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :lounge, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :lounge, :class => 'form-control' %>
+    </div>
+    <%= error_span(@gym[:lounge]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :pt, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :pt, :class => 'form-control' %>
+    </div>
+    <%= error_span(@gym[:pt]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :spinning, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :spinning, :class => 'form-control' %>
+    </div>
+    <%= error_span(@gym[:spinning]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :sauna, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :sauna, :class => 'form-control' %>
+    </div>
+    <%= error_span(@gym[:sauna]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :steam, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :steam, :class => 'form-control' %>
+    </div>
+    <%= error_span(@gym[:steam]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :spa, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :spa, :class => 'form-control' %>
+    </div>
+    <%= error_span(@gym[:spa]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :pool, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :pool, :class => 'form-control' %>
+    </div>
+    <%= error_span(@gym[:pool]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :yoga, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :yoga, :class => 'form-control' %>
+    </div>
+    <%= error_span(@gym[:yoga]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :yoga_hot, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :yoga_hot, :class => 'form-control' %>
+    </div>
+    <%= error_span(@gym[:yoga_hot]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :wifi, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :wifi, :class => 'form-control' %>
+    </div>
+    <%= error_span(@gym[:wifi]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :clothes, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :clothes, :class => 'form-control' %>
+    </div>
+    <%= error_span(@gym[:clothes]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :juice_bar, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :juice_bar, :class => 'form-control' %>
+    </div>
+    <%= error_span(@gym[:juice_bar]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :membership_monthly, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :membership_monthly, :class => 'form-control' %>
+    </div>
+    <%= error_span(@gym[:membership_monthly]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :membership_short, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :membership_short, :class => 'form-control' %>
+    </div>
+    <%= error_span(@gym[:membership_short]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :membership_long, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :membership_long, :class => 'form-control' %>
+    </div>
+    <%= error_span(@gym[:membership_long]) %>
+  </div>
+
+
+  <%= f.submit nil, :class => 'btn btn-primary' %>
+  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+            gyms_path, :class => 'btn btn-default' %>
+
+<% end %>

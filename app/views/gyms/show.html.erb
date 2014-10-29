@@ -1,0 +1,71 @@
+<%- model_class = Gym -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:brand) %>:</strong></dt>
+  <dd><%= @gym.brand %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:branch) %>:</strong></dt>
+  <dd><%= @gym.branch %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:territory) %>:</strong></dt>
+  <dd><%= @gym.territory %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:district) %>:</strong></dt>
+  <dd><%= @gym.district %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:address) %>:</strong></dt>
+  <dd><%= @gym.address %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:telephone) %>:</strong></dt>
+  <dd><%= @gym.telephone %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:cardio) %>:</strong></dt>
+  <dd><%= @gym.cardio %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:crossfit) %>:</strong></dt>
+  <dd><%= @gym.crossfit %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:free_weights) %>:</strong></dt>
+  <dd><%= @gym.free_weights %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:group_studios) %>:</strong></dt>
+  <dd><%= @gym.group_studios %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:machine_weights) %>:</strong></dt>
+  <dd><%= @gym.machine_weights %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:mma) %>:</strong></dt>
+  <dd><%= @gym.mma %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:lounge) %>:</strong></dt>
+  <dd><%= @gym.lounge %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:pt) %>:</strong></dt>
+  <dd><%= @gym.pt %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:spinning) %>:</strong></dt>
+  <dd><%= @gym.spinning %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:sauna) %>:</strong></dt>
+  <dd><%= @gym.sauna %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:steam) %>:</strong></dt>
+  <dd><%= @gym.steam %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:spa) %>:</strong></dt>
+  <dd><%= @gym.spa %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:pool) %>:</strong></dt>
+  <dd><%= @gym.pool %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:yoga) %>:</strong></dt>
+  <dd><%= @gym.yoga %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:yoga_hot) %>:</strong></dt>
+  <dd><%= @gym.yoga_hot %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:wifi) %>:</strong></dt>
+  <dd><%= @gym.wifi %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:clothes) %>:</strong></dt>
+  <dd><%= @gym.clothes %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:juice_bar) %>:</strong></dt>
+  <dd><%= @gym.juice_bar %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:membership_monthly) %>:</strong></dt>
+  <dd><%= @gym.membership_monthly %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:membership_short) %>:</strong></dt>
+  <dd><%= @gym.membership_short %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:membership_long) %>:</strong></dt>
+  <dd><%= @gym.membership_long %></dd>
+</dl>
+
+<%= link_to t('.back', :default => t("helpers.links.back")),
+              gyms_path, :class => 'btn btn-default'  %>
+<%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_gym_path(@gym), :class => 'btn btn-default' %>
+<%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              gym_path(@gym),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>

@@ -22,55 +22,62 @@
 </div>
 
 <div class="table-responsive">
-  <table id="gym-data-table" class="display" cellspacing="0" width="100%">
+  <table id="index-data-table" class="table table-hover table-striped" cellspacing="0" width="100%">
     <thead>
       <tr>
-        <th>Brand</th>
-        <th>Branch</th>
-        <th>District</th>
-        <th>Territory</th>
-        <th>Map</th>
+        <th></th>
+        <th><span class="fa fa-star"></span> Brand</th>
+        <th><span class="fa fa-th-list"></span> Branch</th>
+        <th><span class="fa fa-map-marker"></span> District</th>
+        <th><span class="fa fa-globe"></span> Territory</th>
+        <th><span class="fa fa-home"></span> Address</th>
+        <th><span class="fa fa-phone"></span> Phone</th>
+        <th><span class="fa fa-check-circle"></span> Free Trial</th>
+<!--         <th><span class="fa fa-thumbs-o-up"></span> Unique Feature</th> -->
       </tr>
     </thead>
     <tfoot>
       <tr>
-        <th>Brand</th>
-        <th>Branch</th>
-        <th>District</th>
-        <th>Territory</th>
-        <th>Map</th>
+        <th></th>
+        <th><span class="fa fa-star"></span> Brand</th>
+        <th><span class="fa fa-th-list"></span> Branch</th>
+        <th><span class="fa fa-map-marker"></span> District</th>
+        <th><span class="fa fa-globe"></span> Territory</th>
+        <th><span class="fa fa-home"></span> Address</th>
+        <th><span class="fa fa-phone"></span> Phone</th>
+        <th><span class="fa fa-check-circle"></span> Free Trial</th>
+<!--         <th><span class="fa fa-thumbs-o-up"></span> Unique Feature</th> -->
       </tr>
     </tfoot>
     <tbody>
-      <tr>
-        <td>Pure Fitness</td>
-        <td>IFC Mall</td>
-        <td>Central</td>
-        <td>Hong Kong</td>
-        <td>[link to map]</td>
-      </tr>
-      <tr>
-        <td>Fitness First</td>
-        <td>Hopewell Centre</td>
-        <td>Wan Chai</td>
-        <td>Hong Kong</td>
-        <td>[link to map]</td>
-      </tr>
-      <tr>
-        <td>California Fitness</td>
-        <td>The ONE</td>
-        <td>Tsim Sha Tsui</td>
-        <td>Kowloon</td>
-        <td>[link to map]</td>
-      </tr>
-      <tr>
-        <td>Physical Fitness</td>
-        <td>Concord Square</td>
-        <td>Tsuen Wan</td>
-        <td>New Territories</td>
-        <td>[link to map]</td>
-      </tr>
+      <% @gyms.each do |gym| %>
+        <tr class="table-row">
+          <td class="plus-icon"><span class="fa fa-plus"></span></td>
+          <% if gym.brand == "Pure Fitness" %>
+            <td class="success">
+          <% elsif gym.brand == "Fitness First" %>
+            <td class="danger">
+          <% elsif gym.brand == "California Fitness" %>
+            <td class="warning">
+          <% elsif gym.brand == "Physical Fitness" %>
+            <td class="info">
+          <% end %>
+            <%= gym.brand %>
+          </td>
+          <td><%= gym.branch %></td>
+          <td><%= gym.district %></td>
+          <td><%= gym.territory %></td>
+          <td><%= gym.address %></td>
+          <td><%= gym.telephone %></td>
+          <td><%= gym.cardio %></td>
+<!--           <td><%= gym.crossfit %></td> -->
+        </tr>
+  <!--  <tr class="detail-row">
+          <td colspan="999">  TODO: don't hardcode the number of columns //
+            details...
+          </td>
+        </tr> -->
+      <% end %>
     </tbody>
   </table>
 </div>
-

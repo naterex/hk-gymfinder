@@ -36,4 +36,4 @@ Gym.create brand: "California Fitness", branch: "Tuen Mun Centre", territory: "K
 Gym.create brand: "Physical Fitness", branch: "Concord Square", territory: "New Territories", district: "Tsuen Wan", address: "2-3/F, Concord Square, 88 Chuen Lung Street", telephone: "3710 7777", cardio: true, crossfit: false, free_weights: true, group_studios: true, machine_weights: true, mma: false, lounge: true, pt: true, spinning: true, sauna: true, steam: true, spa: false, pool: false, yoga: true, yoga_hot: false, wifi: true, clothes: false, juice_bar: false, membership_monthly: 1111, membership_short: 888, membership_long: 666
 
 
-
+# rails g scaffold Gym brand:string branch:string territory:string district:string address:string telephone:string cardio:boolean crossfit:boolean free_weights:boolean group_studios:boolean machine_weights:boolean mma:boolean lounge:boolean pt:boolean spinning:boolean sauna:boolean steam:boolean spa:boolean pool:boolean yoga:boolean yoga_hot:boolean wifi:boolean clothes:boolean juice_bar:boolean membership_monthly:integer membership_short:integer membership_long:integer
