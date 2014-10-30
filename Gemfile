@@ -3,8 +3,12 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.6'
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+
+
+group :production do
+  # Use Postgresql as the production database for Active Record
+  gem 'pg'
+end
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
 # Use Uglifier as compressor for JavaScript assets
@@ -45,6 +49,9 @@ gem 'jquery-datatables-rails', '~> 2.2.3'
 gem "nested_form"
 
 group :development do
+  # Use sqlite3 as the database for Active Record
+  gem 'sqlite3'
+
   # Spring speeds up development by keeping your application running in the background.
   #> https://github.com/rails/spring
   gem 'spring'
