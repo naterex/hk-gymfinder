@@ -1,4 +1,4 @@
-<%= form_for @gym, :html => { :class => "form-horizontal gym" } do |f| %>
+<%= nested_form_for @gym, :html => { :class => "form-horizontal gym" } do |f| %>
 
     <% if @gym.errors.any? %>
     <div id="error_expl" class="panel panel-danger">
@@ -205,6 +205,87 @@
     <%= error_span(@gym[:membership_long]) %>
   </div>
 
+  <%= f.fields_for :schedule do |schedule_form| %>
+    <div class="control-group">
+      <%= schedule_form.label "Gym ID" %>
+      <div class="controls">
+        <%= schedule_form.text_field :gym_id %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= schedule_form.label "Monday" %>
+      <div class="controls">
+        <%= schedule_form.label "Open" %>
+        <%= schedule_form.text_field :mon_open %>
+        <%= schedule_form.label "close" %>
+        <%= schedule_form.text_field :mon_close %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= schedule_form.label "Tuesday" %>
+      <div class="controls">
+        <%= schedule_form.label "Open" %>
+        <%= schedule_form.text_field :tue_open %>
+        <%= schedule_form.label "close" %>
+        <%= schedule_form.text_field :tue_close %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= schedule_form.label "Wednesday" %>
+      <div class="controls">
+        <%= schedule_form.label "Open" %>
+        <%= schedule_form.text_field :wed_open %>
+        <%= schedule_form.label "close" %>
+        <%= schedule_form.text_field :wed_close %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= schedule_form.label "Thursday" %>
+      <div class="controls">
+        <%= schedule_form.label "Open" %>
+        <%= schedule_form.text_field :thu_open %>
+        <%= schedule_form.label "close" %>
+        <%= schedule_form.text_field :thu_close %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= schedule_form.label "Friday" %>
+      <div class="controls">
+        <%= schedule_form.label "Open" %>
+        <%= schedule_form.text_field :fri_open %>
+        <%= schedule_form.label "close" %>
+        <%= schedule_form.text_field :fri_close %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= schedule_form.label "Saturday" %>
+      <div class="controls">
+        <%= schedule_form.label "Open" %>
+        <%= schedule_form.text_field :sat_open %>
+        <%= schedule_form.label "close" %>
+        <%= schedule_form.text_field :sun_close %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= schedule_form.label "Sunday" %>
+      <div class="controls">
+        <%= schedule_form.label "Open" %>
+        <%= schedule_form.text_field :sun_open %>
+        <%= schedule_form.label "close" %>
+        <%= schedule_form.text_field :sun_close %>
+      </div>
+    </div>
+
+    <%= schedule_form.link_to_remove "Remove this schedule", :class => "btn btn-warning" %>
+  <% end %>
+  <p><%= f.link_to_add "Add a schedule", :schedule, :class => 'btn btn-success' %></p>
 
   <%= f.submit nil, :class => 'btn btn-primary' %>
   <%= link_to t('.cancel', :default => t("helpers.links.cancel")),

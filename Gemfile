@@ -41,6 +41,9 @@ gem "twitter-bootstrap-rails"
 # datatables.net rails
 gem 'jquery-datatables-rails', '~> 2.2.3'
 
+# nested models form view
+gem "nested_form"
+
 group :development do
   # Spring speeds up development by keeping your application running in the background.
   #> https://github.com/rails/spring

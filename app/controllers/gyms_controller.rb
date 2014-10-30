@@ -69,6 +69,6 @@ class GymsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def gym_params
-      params.require(:gym).permit(:brand, :branch, :territory, :district, :address, :telephone, :cardio, :crossfit, :free_weights, :group_studios, :machine_weights, :mma, :lounge, :pt, :spinning, :sauna, :steam, :spa, :pool, :yoga, :yoga_hot, :wifi, :clothes, :juice_bar, :membership_monthly, :membership_short, :membership_long)
+      params.require(:gym).permit(:brand, :branch, :territory, :district, :address, :telephone, :cardio, :crossfit, :free_weights, :group_studios, :machine_weights, :mma, :lounge, :pt, :spinning, :sauna, :steam, :spa, :pool, :yoga, :yoga_hot, :wifi, :clothes, :juice_bar, :membership_monthly, :membership_short, :membership_long, schedule_attributes: [:gym_id])
     end
 end
