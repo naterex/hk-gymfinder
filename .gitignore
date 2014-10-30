@@ -1,2 +1,3 @@
 gym-data/
 app/db/seeds.rb
+app/config/secrets.yml
