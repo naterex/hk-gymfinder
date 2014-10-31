@@ -10,8 +10,3 @@ table.dataTable tbody tr.selected {
   background-color: #428bca;
   color: white;
 }
-
-table.dataTable tbody tr.brand {
-  /*background-color: #428bca;*/
-  color: inherit;
-}

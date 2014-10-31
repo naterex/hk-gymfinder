@@ -1,5 +1,5 @@
 <div class="col-sm-12 col-md-12 main">
-  <h1 class="page-header">Find your perfect gym in Hong Kong</h1>
+
   <div class="row placeholders">
     <div class="col-xs-6 col-sm-3 placeholder">
       <%= image_tag("group-of-people-doing-aerobics.png", class: "img-responsive", alt: "group of people doing aerobics") %>
@@ -19,10 +19,13 @@
       <!-- <span class="text-muted">Something else</span> -->
     </div>
   </div>
+
+  <h1 class="page-header">Find your perfect gym in Hong Kong</h1>
+
 </div>
 
 <div class="table-responsive">
-  <table id="index-data-table" class="table table-hover table-striped" cellspacing="0" width="100%">
+  <table id="index-data-table" class="table table-hover table-striped table-bordered" cellspacing="0" width="100%">
     <thead>
       <tr>
         <th></th>
@@ -63,21 +66,76 @@
             <td class="info brand">
           <% end %>
             <%= gym.brand %>
-          </td>
-          <td><%= gym.branch %></td>
+            </td>
           <td><%= gym.district %></td>
           <td><%= gym.territory %></td>
+          <td><%= gym.branch %></td>
           <td><%= gym.address %></td>
           <td><%= gym.telephone %></td>
           <td><%= gym.cardio %></td>
-<!--           <td><%= gym.crossfit %></td> -->
+    <!--  <td><%= gym.crossfit %></td> -->
         </tr>
-  <!--  <tr class="detail-row">
-          <td colspan="999">  TODO: don't hardcode the number of columns //
-            details...
-          </td>
+        <!-- <tr class="child-row">
+          <div class="child-row-div">
+            <div class="child-row-schedule-div">
+              <td><h3>Schedule datatable goes here!</h3></td>
+            </div>
+            <div class="child-row-googlemaps-div">
+              <td><h3>Google maps goes here!</h3></td>
+            </div>
+          </div>
         </tr> -->
       <% end %>
     </tbody>
   </table>
 </div>
+
+<!-- <table id="schedule-data-table" style="display:none">
+                <thead>
+                  <tr>
+                    <th></th>
+                    <th>Open</th>
+                    <th>Close</th>
+                  </tr>
+                </thead>
+
+                <tbody>
+                  <% @gyms.each do |gym| %>
+                  <tr>
+                    <td>Monday</td>
+                    <td><%= gym.schedule.mon_open %></td>
+                    <td><%= gym.schedule.mon_close %></td>
+                  <tr>
+                  <tr>
+                    <td>Tuesday</td>
+                    <td><%= gym.schedule.tue_open %></td>
+                    <td><%= gym.schedule.tue_close %></td>
+                  <tr>
+                  <tr>
+                    <td>Wednesday</td>
+                    <td><%= gym.schedule.wed_open %></td>
+                    <td><%= gym.schedule.wed_close %></td>
+                  <tr>
+                  <tr>
+                    <td>Thursday</td>
+                    <td><%= gym.schedule.thu_open %></td>
+                    <td><%= gym.schedule.thu_close %></td>
+                  <tr>
+                  <tr>
+                    <td>Friday</td>
+                    <td><%= gym.schedule.fri_open %></td>
+                    <td><%= gym.schedule.fri_close %></td>
+                  <tr>
+                  <tr>
+                    <td>Saturday</td>
+                    <td><%= gym.schedule.sat_open %></td>
+                    <td><%= gym.schedule.sat_close %></td>
+                  <tr>
+                  <tr>
+                    <td>Sunday</td>
+                    <td><%= gym.schedule.sun_open %></td>
+                    <td><%= gym.schedule.sun_close %></td>
+                  <tr>
+                  <% end %>
+                </tbody>
+              </table> -->

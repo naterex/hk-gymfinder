@@ -1,5 +1,5 @@
 /* Formatting function for row details - modify as you need */
-function format ( d ) {
+function format ( data ) {
     // `d` is the original data object for the row
     return '<div class="table-responsive">'+
       '<table id="schedule-data-table" class="display compact hover order-column" cellspacing="0" width="50%">'+
@@ -11,7 +11,7 @@ function format ( d ) {
         '<tbody>'+
           '<tr>'+
               '<td>Monday</td>'+
-              '<td>8am</td>'+
+              '<td>' + data.schedule.created_at + '</td>'+
               '<td>10pm</td>'+
           '</tr>'+
           '<tr>'+
@@ -74,17 +74,19 @@ $(document).ready(function() {
     // serverSide: true,
 
     destroy: true, //re-initialize datatable
-    autoWidth: true,
+    "scrollY": "", // defulat value is 500px
+    "scrollCollapse": true,
+    "paging": true, // set to false if scrolling
     "sPaginationType": "bootstrap", //boostrap pagination
     "pagingType": "full_numbers", // Optional, if you want full pagination controls.
-    "order": [[ 3, "asc"],[2,"asc"]], //district then branchcolum order
+    "order": [[ 1, "asc"],[3,"asc"]], //district then branchcolum order
     "iDisplayLength": 50, // default show # entries
     "columns": [
       { "autowidth": true }, // dropdown icon
       { "autowidth": true }, // Brand
-      { "autowidth": true }, // Branch
       { "autowidth": true }, // District
       { "autowidth": true }, // Territory
+      { "autowidth": true }, // Branch
       { "autowidth": true }, // Address
       { "autowidth": true }, // Phone
       { "autowidth": true }, // Free trial
@@ -93,15 +95,10 @@ $(document).ready(function() {
   } );
 
   // console.log("dReady AFTER datatables!");
+  $('#index-data-table .details-row').hide();
 
   // Add event listener for opening and closing details
   $('#index-data-table tbody').on( 'click', 'tr', function () {
-
-    // Mark's code
-    // var gymId = $(this).data('gym-id');
-    // $.get('/gyms/' + gymId + '.json').done(function(data) {
-    //   console.log(data);
-    // });
 
     var tr = $(this).closest('tr');
     var row = table.row( tr );
@@ -112,9 +109,12 @@ $(document).ready(function() {
       tr.removeClass('shown');
     }
     else {
-      // Open this clicked row
-      row.child( format(row.data()) ).show();
-      tr.addClass('shown');
+      var gymId = $(tr).data('gym-id');
+      $.get('/gyms/' + gymId + '.json').done(function(data) {
+        // Open this clicked row
+        row.child( format(data) ).show();
+        tr.addClass('shown');
+      });
     }
 
     // console.log("Table row clicked");

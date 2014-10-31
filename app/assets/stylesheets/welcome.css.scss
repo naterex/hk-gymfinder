@@ -3,12 +3,13 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
-
-.page-header {
-  text-align: center
+.index-div-photos-and-datatable {
+  margin-bottom: 10%;
+  /*background-color: red;*/
 }
+
 .placeholders{
-  margin-bottom: 45px;
+  margin-top: 2%;
 }
 
 .placeholder img {
@@ -16,8 +17,9 @@
   border: silver solid 1px!important;
 }
 
-.index-photos-table{
-  margin-bottom: 45px;
+.page-header {
+  text-align: center;
+  font-weight: bold;
 }
 
 .fa-plus {
@@ -33,7 +35,34 @@
   cursor: hand;
 }
 
-tr:hover {
+/*tr:hover {
   cursor: pointer;
   cursor: hand;
+}*/
+
+.child-row {
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+/*table.dataTable tbody tr.child-row {
+  height: 0;
+}*/
+
+/*table.dataTable tbody tr.child-row {
+  visibility: collapse;
+}*/
+
+.child-row-div {
+  /*width: 100%;*/
+}
+
+.child-row-schedule-div{
+  width: 45%;
+  float: left;
+}
+
+.child-row-googlemaps-div {
+  width: 45%;
+  float: right;
 }
