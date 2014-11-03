@@ -35,10 +35,10 @@
   cursor: hand;
 }
 
-/*tr:hover {
+tr:hover {
   cursor: pointer;
   cursor: hand;
-}*/
+}
 
 .child-row {
   margin-left: 5%;
@@ -65,4 +65,8 @@
 .child-row-googlemaps-div {
   width: 45%;
   float: right;
+}
+
+.schedule-data-table th {
+  font-weight: bold;
 }

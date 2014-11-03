@@ -1,4 +1,6 @@
-<div class="col-sm-12 col-md-12 main">
+<!-- <div class="jumbotron"> -->
+  <div class="container">
+    <div class="col-sm-12 col-md-12 main">
 
   <div class="row placeholders">
     <div class="col-xs-6 col-sm-3 placeholder">
@@ -20,35 +22,37 @@
     </div>
   </div>
 
+    </div>
+  </div>
+<!-- </div> -->
   <h1 class="page-header">Find your perfect gym in Hong Kong</h1>
 
-</div>
 
 <div class="table-responsive">
-  <table id="index-data-table" class="table table-hover table-striped table-bordered" cellspacing="0" width="100%">
+  <table id="index-data-table" class="table table-hover table-striped" cellspacing="0" width="100%">
     <thead>
       <tr>
         <th></th>
-        <th><span class="fa fa-star"></span> Brand</th>
-        <th><span class="fa fa-th-list"></span> Branch</th>
-        <th><span class="fa fa-map-marker"></span> District</th>
-        <th><span class="fa fa-globe"></span> Territory</th>
-        <th><span class="fa fa-home"></span> Address</th>
-        <th><span class="fa fa-phone"></span> Phone</th>
-        <th><span class="fa fa-check-circle"></span> Free Trial</th>
+        <th><span class="fa fa-star fa-spin"></span> Brand</th>
+        <th><span class="fa fa-th-list fa-spin"></span> Branch</th>
+        <th><span class="fa fa-map-marker fa-spin"></span> District</th>
+        <th><span class="fa fa-globe fa-spin"></span> Territory</th>
+        <th><span class="fa fa-home fa-spin"></span> Address</th>
+        <th><span class="fa fa-phone fa-spin"></span> Phone</th>
+        <th><span class="fa fa-check-circle fa-spin"></span> Free Trial</th>
 <!--         <th><span class="fa fa-thumbs-o-up"></span> Unique Feature</th> -->
       </tr>
     </thead>
     <tfoot>
       <tr>
         <th></th>
-        <th><span class="fa fa-star"></span> Brand</th>
-        <th><span class="fa fa-th-list"></span> Branch</th>
-        <th><span class="fa fa-map-marker"></span> District</th>
-        <th><span class="fa fa-globe"></span> Territory</th>
-        <th><span class="fa fa-home"></span> Address</th>
-        <th><span class="fa fa-phone"></span> Phone</th>
-        <th><span class="fa fa-check-circle"></span> Free Trial</th>
+        <th><span class="fa fa-star fa-spin"></span> Brand</th>
+        <th><span class="fa fa-th-list fa-spin"></span> Branch</th>
+        <th><span class="fa fa-map-marker fa-spin"></span> District</th>
+        <th><span class="fa fa-globe fa-spin"></span> Territory</th>
+        <th><span class="fa fa-home fa-spin"></span> Address</th>
+        <th><span class="fa fa-phone fa-spin"></span> Phone</th>
+        <th><span class="fa fa-check-circle fa-spin"></span> Free Trial</th>
 <!--         <th><span class="fa fa-thumbs-o-up"></span> Unique Feature</th> -->
       </tr>
     </tfoot>
@@ -75,67 +79,7 @@
           <td><%= gym.cardio %></td>
     <!--  <td><%= gym.crossfit %></td> -->
         </tr>
-        <!-- <tr class="child-row">
-          <div class="child-row-div">
-            <div class="child-row-schedule-div">
-              <td><h3>Schedule datatable goes here!</h3></td>
-            </div>
-            <div class="child-row-googlemaps-div">
-              <td><h3>Google maps goes here!</h3></td>
-            </div>
-          </div>
-        </tr> -->
       <% end %>
     </tbody>
   </table>
 </div>
-
-<!-- <table id="schedule-data-table" style="display:none">
-                <thead>
-                  <tr>
-                    <th></th>
-                    <th>Open</th>
-                    <th>Close</th>
-                  </tr>
-                </thead>
-
-                <tbody>
-                  <% @gyms.each do |gym| %>
-                  <tr>
-                    <td>Monday</td>
-                    <td><%= gym.schedule.mon_open %></td>
-                    <td><%= gym.schedule.mon_close %></td>
-                  <tr>
-                  <tr>
-                    <td>Tuesday</td>
-                    <td><%= gym.schedule.tue_open %></td>
-                    <td><%= gym.schedule.tue_close %></td>
-                  <tr>
-                  <tr>
-                    <td>Wednesday</td>
-                    <td><%= gym.schedule.wed_open %></td>
-                    <td><%= gym.schedule.wed_close %></td>
-                  <tr>
-                  <tr>
-                    <td>Thursday</td>
-                    <td><%= gym.schedule.thu_open %></td>
-                    <td><%= gym.schedule.thu_close %></td>
-                  <tr>
-                  <tr>
-                    <td>Friday</td>
-                    <td><%= gym.schedule.fri_open %></td>
-                    <td><%= gym.schedule.fri_close %></td>
-                  <tr>
-                  <tr>
-                    <td>Saturday</td>
-                    <td><%= gym.schedule.sat_open %></td>
-                    <td><%= gym.schedule.sat_close %></td>
-                  <tr>
-                  <tr>
-                    <td>Sunday</td>
-                    <td><%= gym.schedule.sun_open %></td>
-                    <td><%= gym.schedule.sun_close %></td>
-                  <tr>
-                  <% end %>
-                </tbody>
-              </table> -->

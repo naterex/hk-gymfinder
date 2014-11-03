@@ -7,6 +7,23 @@ To use Glyphicons sprites instead of Font Awesome, replace with "require twitter
 */
 
 table.dataTable tbody tr.selected {
-  background-color: #428bca;
-  color: white;
+  background-color: #666;
+  /*color: white;*/
+}
+
+
+.hover-transparent {
+  background-color: white;
+}
+
+.hover-transparent:hover {
+  background-color: transparent;
+}
+
+table.dataTable tbody tr:hover td.hover-transparent {
+  background-color: none;
+}
+
+tbody tr:hover td.hover-transparent {
+  background-color: none;
 }
